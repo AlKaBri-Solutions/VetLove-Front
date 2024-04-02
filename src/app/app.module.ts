@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { MisMascotasComponent } from './Veterinario/mis-mascotas/mis-mascotas.component';
+import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     SidebarComponent,
-    MisMascotasComponent
+    MisMascotasComponent,
+    PaginaPrincipalVeterinarioComponent
   ],
   imports: [
     BrowserModule,
