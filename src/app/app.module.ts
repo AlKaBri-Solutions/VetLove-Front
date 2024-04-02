@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MisMascotasComponent } from './Veterinario/mis-mascotas/mis-mascotas.component';
+import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
-import { MisMascotasComponent } from './Veterinario/mis-mascotas/mis-mascotas.component';
-import { PaginaPrincipalComponent } from './Veterinario/pagina-principal/pagina-principal.component';
-import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
+import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
+import { FormularioMascotaComponent } from './general/formulario-mascota/formulario-mascota.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +15,8 @@ import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-princi
     LandingPageComponent,
     SidebarComponent,
     MisMascotasComponent,
-    PaginaPrincipalComponent,
-    PaginaPrincipalVeterinarioComponent
+    PaginaPrincipalVeterinarioComponent,
+    FormularioMascotaComponent
   ],
   imports: [
     BrowserModule,
