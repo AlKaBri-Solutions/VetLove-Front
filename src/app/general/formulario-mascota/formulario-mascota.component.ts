@@ -8,7 +8,18 @@ import { Component } from '@angular/core';
 export class FormularioMascotaComponent {
   sendMascota!:Mascota;
   
-  mascotaForm: any;
+  formMascota: Mascota = {
+    id: 0,
+    name: '',
+    lastName: '',
+    age: 0,
+    email: '',
+    phone: '',
+    ppa: 0,
+    address: '',
+    activated: true,
+    fechaPago: new Date()
+  }
 
   addMascotaForm(){
     console.log(this.formStudent);

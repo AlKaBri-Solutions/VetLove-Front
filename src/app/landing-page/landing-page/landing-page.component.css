@@ -580,10 +580,11 @@ footer a{
 }
 
 
-.swiper {
+.swiper-container {
     width: 60%;
     height: fit-content;
     margin-top: 2.5%;
+    overflow: hidden;
   }
 
   .swiper-wraper{

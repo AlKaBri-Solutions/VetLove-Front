@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
-import { FormularioMascotaComponent } from './general/formulario-mascota/formulario-mascota.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { FormularioMascotaComponent } from './general/formulario-mascota/formula
     LandingPageComponent,
     SidebarComponent,
     MisMascotasComponent,
-    PaginaPrincipalVeterinarioComponent,
-    FormularioMascotaComponent
+    PaginaPrincipalVeterinarioComponent
   ],
   imports: [
     BrowserModule,
