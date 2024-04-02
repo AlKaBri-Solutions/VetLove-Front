@@ -4,6 +4,6 @@ export interface Mascota {
     raza: string;
     edad: number;
     peso: number;
-    nombreEstado: string;
+    estado: string;
     foto: string;
 }
