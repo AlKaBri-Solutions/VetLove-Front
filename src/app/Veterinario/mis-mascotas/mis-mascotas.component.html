@@ -1,73 +1,86 @@
+<section class="seccion--tabla-mascotas seccion visible" id="tabla">
+    <h1>
+        Hola, <span class="usuario"></span>
+    </h1>
 
-<section class = "seccion--tabla-mascotas seccion visible" id="tabla">
-<h1>
-    Hola, <span class="usuario"></span>
-</h1>
 
+    <div class="contenedor-lo-que-sea">
+        <a href="/veterinario/add-mascota">
+            <div tabindex="0" class="plusButton">
+                <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <g mask="url(#mask0_21_345)">
+                        <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+        </a>
 
-<div class="contenedor-lo-que-sea">
-        <div tabindex="0" class="plusButton">
-            <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-              <g mask="url(#mask0_21_345)">
-                <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
-              </g>
-            </svg>
-          </div>
-    
-    <div class="container">
-        <input type="text" name="text" id="filtro" class="input" required="" placeholder="Escribe para encontrar una mascota...">
-        <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                <title>Search</title>
-                <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
-                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
-            </svg>
+        <div class="container">
+            <input type="text" name="text" id="filtro" class="input" required=""
+                placeholder="Escribe para encontrar una mascota...">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <title>Search</title>
+                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none"
+                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+                        stroke-width="32" d="M338.29 338.29L448 448"></path>
+                </svg>
+            </div>
         </div>
+        <h3>Estas son tus mascotas registradas</h3>
     </div>
-    <h3>Estas son tus mascotas registradas</h3>
-</div>
-<div class="contenedor-tabla">
-    <table id ="tabla-mascotas-header" class="tabla-mascotas">
-        <thead>
-            <tr>
-                <th class="row-0">Foto</th>
-                <th class="row-1">Nombre</th>
-                <th class="row-2">Raza</th>
-                <th class="row-3">Edad</th>
-                <th class="row-4">Estado</th>
-                <th class="row-5">Detalles</th>
-                <th class="row-6">Eliminar</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-<div class="contenedor-tabla">
-    <ng-container *ngFor = "let mascota of mascotaList">
-        <table id="tabla-mascotas-body" class="tabla-mascotas">
-            <ng-container *ngIf = "mascota">
-                <tbody>
-                    <tr>
-                        <td class="row-0"><div><img class="imagen-mascota" src="{{mascota.foto}}"></div></td>
-                        <td class="row-1">{{mascota.nombre}}</td>
-                        <td class="row-2">{{mascota.raza}}</td>
-                        <td class="row-3">{{mascota.edad}}</td>
-                        <td class="row-4">{{mascota.estado}}</td>
-                        <td class="row-5">
-                            <a style ="text-decoration: none" class="boton-detalles">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M6.5 13a6.47 6.47 0 0 0 3.845-1.258h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1A6.47 6.47 0 0 0 13 6.5A6.5 6.5 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13m0-8.518c1.664-1.673 5.825 1.254 0 5.018c-5.825-3.764-1.664-6.69 0-5.018"/></svg>
-                            </a>
-                        </td>
-        
-                        <td class="row-6">
-                            <a style ="text-decoration: none" class="boton-detalles">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/></svg>
-                            </a>
-                        </td>
-                        
-                    </tr>
-                </tbody>
-            </ng-container>
-        </table> 
-    </ng-container>
-</div>
+    <div class="contenedor-tabla">
+        <table id="tabla-mascotas-header" class="tabla-mascotas">
+            <thead>
+                <tr>
+                    <th class="row-0">Foto</th>
+                    <th class="row-1">Nombre</th>
+                    <th class="row-2">Raza</th>
+                    <th class="row-3">Edad</th>
+                    <th class="row-4">Estado</th>
+                    <th class="row-5">Detalles</th>
+                    <th class="row-6">Eliminar</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="contenedor-tabla">
+        <ng-container *ngFor="let mascota of mascotaList">
+            <table id="tabla-mascotas-body" class="tabla-mascotas">
+                <ng-container *ngIf="mascota">
+                    <tbody>
+                        <tr>
+                            <td class="row-0">
+                                <div><img class="imagen-mascota" src="{{mascota.foto}}"></div>
+                            </td>
+                            <td class="row-1">{{mascota.nombre}}</td>
+                            <td class="row-2">{{mascota.raza}}</td>
+                            <td class="row-3">{{mascota.edad}}</td>
+                            <td class="row-4">{{mascota.estado.nombre}}</td>
+                            <td class="row-5">
+                                <a style="text-decoration: none" class="boton-detalles">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                        <path fill="currentColor"
+                                            d="M6.5 13a6.47 6.47 0 0 0 3.845-1.258h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1A6.47 6.47 0 0 0 13 6.5A6.5 6.5 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13m0-8.518c1.664-1.673 5.825 1.254 0 5.018c-5.825-3.764-1.664-6.69 0-5.018" />
+                                    </svg>
+                                </a>
+                            </td>
+
+                            <td class="row-6">
+                                <a style="text-decoration: none" class="boton-detalles">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+                                        <path fill="currentColor"
+                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                    </svg>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </ng-container>
+    </div>
 </section>

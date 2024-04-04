@@ -8,10 +8,22 @@ import Swiper from 'swiper';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent {
+
+  //@ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
+
+  slideNext(){
+    //this.swiper.swi
+  }
+
+
   constructor() { }
 
   ngAfterViewInit(): void {
     // Inicialización de Swiper después de que la vista del componente se haya inicializado
+
+
+
+
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 80,

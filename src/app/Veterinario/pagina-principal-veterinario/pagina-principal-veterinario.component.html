@@ -1,2 +1,14 @@
 <app-sidebar></app-sidebar>
-<app-mis-mascotas></app-mis-mascotas>
+<ng-container *ngIf="ruta == '/veterinario/mis-mascotas' || ruta == '/veterinario'">
+    <app-mis-mascotas></app-mis-mascotas>
+
+</ng-container>
+<ng-container *ngIf="ruta == '/veterinario/mis-tratamientos'">
+    <app-mis-tratamientos></app-mis-tratamientos>
+</ng-container>
+<ng-container *ngIf="ruta == '/veterinario/mis-clientes'">
+    <app-mis-clientes></app-mis-clientes>
+</ng-container>
+<ng-container *ngIf="ruta == '/veterinario/mi-perfil'">
+    <app-mi-perfil></app-mi-perfil>
+</ng-container>
