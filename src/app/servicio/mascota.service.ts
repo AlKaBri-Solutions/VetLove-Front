@@ -20,8 +20,16 @@ export class MascotaService {
     return this.http.get<Mascota>('http://localhost:8090/mascota/find?id=' + id);
   }
 
+  getMascotasByVeterinarioId(id: number) {
+    return this.http.get<Mascota[]>('http://localhost:8090/mascota/veterinario?id=' + id);
+  }
+
   saveMascota(mascota: Mascota) {
     console.log("Entra al servicio")
     return this.http.post<Mascota>('http://localhost:8090/mascota/add', mascota);
+  }
+
+  deleteMascota(id: number) {
+    return this.http.delete<Mascota>('http://localhost:8090/mascota/delete/' + id);
   }
 }

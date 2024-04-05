@@ -13,7 +13,7 @@ export class PaginaPrincipalVeterinarioComponent {
   ) { }
 
   ngOnInit(): void {
-    this.ruta = this.router.url
+    this.ruta = this.router.url.split('?')[0];
   }
 
 }

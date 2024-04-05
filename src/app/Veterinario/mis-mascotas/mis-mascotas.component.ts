@@ -11,6 +11,8 @@ import { MascotaService } from 'src/app/servicio/mascota.service';
 export class MisMascotasComponent {
 
   mascotaList!: Mascota[];
+  vetId1 = '';
+  url:string = "";
 
   constructor(
     private router: Router,
@@ -20,10 +22,23 @@ export class MisMascotasComponent {
 
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
-        this.servicioMascota.getAllMascotas().subscribe(mascotas => {
+        this.vetId1 = params.get('id') as string;
+        console.log(this.vetId1)
+        this.servicioMascota.getMascotasByVeterinarioId(Number(this.vetId1)).subscribe(mascotas => {
           this.mascotaList = mascotas;
         });
       })
+    }
+
+    confirmarEliminacion(id: number){
+      if(confirm("Seguro que desea dar de baja a la mascota?")) {
+        this.servicioMascota.deleteMascota(id).subscribe(); //Cambiar en el back
+        for (let i = 0; i < this.mascotaList.length; i++) {
+          if (this.mascotaList[i].id == id) {
+            this.mascotaList[i].estado = {id: 2, nombre: 'De baja'} //Cambiar en el front
+          }
+        }
+      }
     }
 
 }
