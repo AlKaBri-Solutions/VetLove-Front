@@ -22,7 +22,8 @@ export class MisMascotasComponent {
 
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
-        this.vetId1 = params.get('id') as string;
+        this.vetId1 = String(params.get('id'));
+        this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
         console.log(this.vetId1)
         this.servicioMascota.getMascotasByVeterinarioId(Number(this.vetId1)).subscribe(mascotas => {
           this.mascotaList = mascotas;
