@@ -16,7 +16,7 @@ export class FormularioMascotaComponent {
     private servicioMascota: MascotaService,
     private router: Router,
     private route: ActivatedRoute,
-  ) {}
+  ) { }
 
   sendMascota!: Mascota;
 
@@ -35,28 +35,36 @@ export class FormularioMascotaComponent {
 
   vetId1!: string;
 
-  esActualizar:boolean = false;
+  esActualizar: boolean = false;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-      console.log(this.router.url.split('?')[0])
-      if(this.router.url.split('?')[0] == '/veterinario/add-mascota'){
+      if (this.router.url.split('?')[0] == '/veterinario/add-mascota') {
         this.esActualizar = false;
       }
       else {
         this.esActualizar = true;
+        this.servicioMascota.getMascotaById(Number(this.router.url.split('idMascota=')[1].split('&')[0])).subscribe(mascota => {
+          this.formMascota = mascota
+        })
       }
     });
 
   }
 
   registrarMascota(mascotaForm: Mascota) {
-    console.log("Entra")
-    console.log(mascotaForm)
-    this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
-      this.addMascotaEvent.emit(mascota);
-      this.router.navigate(['/veterinario/mis-mascotas?id=' + this.vetId1]);
-    })
+    if (this.router.url.split('?')[0] == '/veterinario/add-mascota') {
+      this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
+        this.addMascotaEvent.emit(mascota);
+        this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+      })
+    }
+    else {
+      this.servicioMascota.updateMascota(mascotaForm).subscribe(mascota => {
+        this.addMascotaEvent.emit(mascota);
+        this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+      })
+    }
   }
 }

@@ -29,6 +29,10 @@ export class MascotaService {
     return this.http.post<Mascota>('http://localhost:8090/mascota/add', mascota);
   }
 
+  updateMascota(mascota: Mascota) {
+    return this.http.put<Mascota>('http://localhost:8090/mascota/update', mascota);
+  }
+
   deleteMascota(id: number) {
     return this.http.delete<Mascota>('http://localhost:8090/mascota/delete/' + id);
   }
