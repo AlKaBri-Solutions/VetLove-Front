@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Veterinario } from '../models/Veterinario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,6 @@ export class VeterinarioService {
   ) { }
 
   getVeterinarioById(id: number) {
-    return this.http.get('http://localhost:8090/veterinario/find?id=' + id);
+    return this.http.get<Veterinario>('http://localhost:8090/veterinario/find?id=' + id);
   }
 }

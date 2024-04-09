@@ -3,4 +3,5 @@ export interface Veterinario {
     cedula: string;
     nombre: string;
     contrasenia: string;
+    fotoUrl: string;
 }
