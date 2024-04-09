@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'veterinario/mis-clientes', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/add-mascota', component: FormularioMascotaComponent},
+  {path: 'veterinario/update-mascota', component: FormularioMascotaComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
 ];
 

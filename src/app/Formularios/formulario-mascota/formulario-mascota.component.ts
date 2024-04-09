@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/Mascota';
 import { MascotaService } from 'src/app/servicio/mascota.service';
 
@@ -14,7 +14,8 @@ export class FormularioMascotaComponent {
 
   constructor(
     private servicioMascota: MascotaService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   sendMascota!: Mascota;
@@ -30,14 +31,32 @@ export class FormularioMascotaComponent {
       id: 1,
       nombre: 'Ingresado'
     },
-    };
+  };
+
+  vetId1!: string;
+
+  esActualizar:boolean = false;
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
+      console.log(this.router.url.split('?')[0])
+      if(this.router.url.split('?')[0] == '/veterinario/add-mascota'){
+        this.esActualizar = false;
+      }
+      else {
+        this.esActualizar = true;
+      }
+    });
+
+  }
 
   registrarMascota(mascotaForm: Mascota) {
     console.log("Entra")
     console.log(mascotaForm)
     this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
       this.addMascotaEvent.emit(mascota);
-      this.router.navigate(['/veterinario']);
+      this.router.navigate(['/veterinario/mis-mascotas?id=' + this.vetId1]);
     })
   }
 }

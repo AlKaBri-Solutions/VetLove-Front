@@ -24,6 +24,7 @@ export class MiPerfilComponent {
       this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
       this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
         this.veterinario = veterinario
+        console.log(this.veterinario)
       });
     });
   }
