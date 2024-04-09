@@ -303,13 +303,6 @@ footer a{
     z-index: 1;
     width: 18%;
    }
-
-.boton-accion:hover{
-    background-color: #000C4F;
-     color: #FE761E;
-     cursor: pointer;
-}
-
    
    .boton-accion .icono-boton {
     display: flex;
@@ -325,7 +318,8 @@ footer a{
     transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
    }
    
-   .icono-boton:hover{
+   .icono-boton:hover,
+   .boton-accion:hover{
     background-color: #000C4F;
     color: #FE761E;
    }

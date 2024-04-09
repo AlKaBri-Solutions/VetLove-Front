@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/Mascota';
 import { MascotaService } from 'src/app/servicio/mascota.service';
+import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
   selector: 'app-mis-mascotas',
@@ -13,11 +14,14 @@ export class MisMascotasComponent {
   mascotaList!: Mascota[];
   vetId1 = '';
   url:string = "";
+  vet!:any;
+  
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private servicioMascota: MascotaService,
+    private servicioVeterinario: VeterinarioService,
   ) { }
 
     ngOnInit(): void {
@@ -28,6 +32,9 @@ export class MisMascotasComponent {
         this.servicioMascota.getMascotasByVeterinarioId(Number(this.vetId1)).subscribe(mascotas => {
           this.mascotaList = mascotas;
         });
+        this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
+          this.vet = veterinario
+        })
       })
     }
 

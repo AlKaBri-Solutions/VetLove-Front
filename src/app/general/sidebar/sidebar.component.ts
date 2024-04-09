@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent {
   ruta!: string
+  id!: number
 
   constructor(
     private router: Router
@@ -15,5 +16,6 @@ export class SidebarComponent {
 
   ngOnInit(): void {
     this.ruta = this.router.url.split('?')[0];
+    this.id = Number(this.router.url.split('id=')[1].split('&')[0]);
   }
 }

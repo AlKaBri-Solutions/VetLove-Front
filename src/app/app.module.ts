@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
+import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
+import { EnConstruccionComponent } from './general/en-construccion/en-construccion.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
     FormularioMascotaComponent,
     MisTratamientosComponent,
     MisClientesComponent,
-    MiPerfilComponent
+    MiPerfilComponent,
+    PaginaPrincipalLoginComponent,
+    EnConstruccionComponent
   ],
   imports: [
     BrowserModule,

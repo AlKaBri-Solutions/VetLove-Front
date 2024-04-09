@@ -32,4 +32,6 @@ export class MascotaService {
   deleteMascota(id: number) {
     return this.http.delete<Mascota>('http://localhost:8090/mascota/delete/' + id);
   }
+
+  
 }
