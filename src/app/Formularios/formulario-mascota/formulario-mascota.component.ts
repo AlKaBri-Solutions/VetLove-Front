@@ -31,6 +31,13 @@ export class FormularioMascotaComponent {
       id: 1,
       nombre: 'Ingresado'
     },
+    dueno: {
+      id: 0,
+      nombre: '',
+      correo: '',
+      cedula: '',
+      celular: ''
+    }
   };
 
   vetId1!: string;

@@ -1,3 +1,4 @@
+import { Cliente } from "./Cliente";
 import { EstadoMas } from "./EstadoMas";
 
 export interface Mascota {
@@ -8,4 +9,5 @@ export interface Mascota {
     peso: number;
     estado: EstadoMas;
     foto: string;
+    dueno: Cliente
 }

@@ -34,6 +34,8 @@
 
       <form id="form-login" class="flip-card__form">
         <ng-container *ngIf="!esActualizar">
+          <input id="id_dueno" class="flip-card__input" placeholder="Cédula dueño" type="text" name="cedula"
+            [(ngModel)]="formMascota.dueno.cedula">
           <input id="id_nombre" class="flip-card__input" placeholder="Nombre" type="text" name="nombre"
             [(ngModel)]="formMascota.nombre">
           <input id="id_raza" class="flip-card__input" placeholder="Raza" type="text" name="raza"

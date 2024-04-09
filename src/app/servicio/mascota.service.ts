@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cliente } from '../models/Cliente';
 import { Mascota } from '../models/Mascota';
+import { ClienteService } from './cliente.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,11 @@ import { Mascota } from '../models/Mascota';
 export class MascotaService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private servicioCliente: ClienteService
   ) { }
+
+  cliente!:Cliente;
 
   getAllMascotas(): Observable<Mascota[]> {
     return this.http.get<Mascota[]>('http://localhost:8090/mascota/all');
@@ -25,8 +30,11 @@ export class MascotaService {
   }
 
   saveMascota(mascota: Mascota) {
-    console.log("Entra al servicio")
-    return this.http.post<Mascota>('http://localhost:8090/mascota/add', mascota);
+    const params = {
+      cedula: mascota.dueno.cedula,
+      mascota: mascota
+    }
+    return this.http.post<Mascota>('http://localhost:8090/mascota/add', params);
   }
 
   updateMascota(mascota: Mascota) {

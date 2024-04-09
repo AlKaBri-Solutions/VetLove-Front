@@ -15,4 +15,16 @@ export class ClienteService {
   getClientesByVeterinarioId(id:number): Observable<Cliente[]> {
     return this.http.get<Cliente[]>('http://localhost:8090/cliente/veterinario?id=' + id);
   }
+
+  getClienteById(id:number): Observable<Cliente> {
+    return this.http.get<Cliente>('http://localhost:8090/cliente/find?id=' + id);
+  }
+
+  saveCliente(cliente: Cliente) {
+    return this.http.post<Cliente>('http://localhost:8090/cliente/add', cliente);
+  }
+
+  updateCliente(cliente: Cliente) {
+    return this.http.put<Cliente>('http://localhost:8090/cliente/update', cliente);
+  }
 }
