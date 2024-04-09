@@ -25,7 +25,18 @@ export class FormularioClienteComponent {
     nombre: '',
     correo: '',
     celular: '',
-    cedula: ''
+    cedula: '',
+    veterinario: {
+      idVeterinario: 0,
+      cedula: '',
+      nombre: '',
+      contrasenia: '',
+      fotoUrl: '',
+      especialidad: {
+        idEspecialidad: 0,
+        nombre: ''
+      }
+    }
   }
 
   vetId1!: string;
@@ -49,7 +60,7 @@ export class FormularioClienteComponent {
 
   registrarCliente(clienteForm: Cliente) {
     if (this.router.url.split('?')[0] == '/veterinario/add-cliente') {
-      this.servicioCliente.saveCliente(clienteForm).subscribe(cliente => {
+      this.servicioCliente.saveCliente(clienteForm, this.vetId1).subscribe(cliente => {
         this.addClienteEvent.emit(cliente);
         this.router.navigate(['/veterinario/mis-clientes'], {queryParams: {id: this.vetId1}});
       })

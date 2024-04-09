@@ -36,7 +36,18 @@ export class FormularioMascotaComponent {
       nombre: '',
       correo: '',
       cedula: '',
-      celular: ''
+      celular: '',
+      veterinario: {
+        idVeterinario: 0,
+        cedula: '',
+        nombre: '',
+        contrasenia: '',
+        fotoUrl: '',
+        especialidad: {
+          idEspecialidad: 0,
+          nombre: ''
+        }
+      }
     }
   };
 

@@ -20,8 +20,13 @@ export class ClienteService {
     return this.http.get<Cliente>('http://localhost:8090/cliente/find?id=' + id);
   }
 
-  saveCliente(cliente: Cliente) {
-    return this.http.post<Cliente>('http://localhost:8090/cliente/add', cliente);
+  saveCliente(cliente: Cliente, id: string) {
+    const params = {
+      id: id,
+      cliente: cliente
+    }
+    console.log(params)
+    return this.http.post<Cliente>('http://localhost:8090/cliente/add', params);
   }
 
   updateCliente(cliente: Cliente) {
