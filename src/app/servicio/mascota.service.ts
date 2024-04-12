@@ -45,5 +45,8 @@ export class MascotaService {
     return this.http.delete<Mascota>('http://localhost:8090/mascota/delete/' + id);
   }
 
-  
+  undeleteMascota(id: number) {
+    return this.http.delete<Mascota>('http://localhost:8090/mascota/undelete/' + id);
+  }
+
 }

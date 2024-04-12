@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/Mascota';
+import { ClienteService } from 'src/app/servicio/cliente.service';
 import { MascotaService } from 'src/app/servicio/mascota.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class FormularioMascotaComponent {
     private servicioMascota: MascotaService,
     private router: Router,
     private route: ActivatedRoute,
+    private servicioCliente: ClienteService
   ) { }
 
   sendMascota!: Mascota;
@@ -73,9 +75,17 @@ export class FormularioMascotaComponent {
 
   registrarMascota(mascotaForm: Mascota) {
     if (this.router.url.split('?')[0] == '/veterinario/add-mascota') {
-      this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
-        this.addMascotaEvent.emit(mascota);
-        this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+      this.servicioCliente.getClienteByCedula(mascotaForm.dueno.cedula).subscribe(cliente => {
+        if (cliente == null) {
+          alert('El dueño no existe');
+          this.router.navigate(['/veterinario/add-mascota'], {queryParams: {id: this.vetId1}});
+        }
+        else {
+          this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
+            this.addMascotaEvent.emit(mascota);
+            this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+          })
+        }
       })
     }
     else {

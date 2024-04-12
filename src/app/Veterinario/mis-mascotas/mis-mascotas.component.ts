@@ -35,11 +35,22 @@ export class MisMascotasComponent {
     }
 
     confirmarEliminacion(id: number){
-      if(confirm("Seguro que desea dar de baja a la mascota?")) {
+      if(confirm("Seguro que desea cambiar el estado de la mascota?")) {
         this.servicioMascota.deleteMascota(id).subscribe(); //Cambiar en el back
         for (let i = 0; i < this.mascotaList.length; i++) {
           if (this.mascotaList[i].id == id) {
             this.mascotaList[i].estado = {id: 2, nombre: 'De baja'} //Cambiar en el front
+          }
+        }
+      }
+    }
+
+    confirmarAgregacion(id: number){
+      if(confirm("Seguro que desea cambiar el estado de la mascota?")) {
+        this.servicioMascota.undeleteMascota(id).subscribe(); //Cambiar en el back
+        for (let i = 0; i < this.mascotaList.length; i++) {
+          if (this.mascotaList[i].id == id) {
+            this.mascotaList[i].estado = {id: 1, nombre: 'Ingresado'} //Cambiar en el front
           }
         }
       }

@@ -20,6 +20,10 @@ export class ClienteService {
     return this.http.get<Cliente>('http://localhost:8090/cliente/find?id=' + id);
   }
 
+  getClienteByCedula(cedula: string): Observable<Cliente> {
+    return this.http.get<Cliente>('http://localhost:8090/cliente/findCedula?cedula=' + cedula);
+  }
+
   saveCliente(cliente: Cliente, id: string) {
     const params = {
       id: id,
