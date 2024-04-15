@@ -14,4 +14,8 @@ export class VeterinarioService {
   getVeterinarioById(id: number) {
     return this.http.get<Veterinario>('http://localhost:8090/veterinario/find?id=' + id);
   }
+
+  getVeterinarioByCedula(cedula: string){
+    return this.http.get<Veterinario>('http://localhost:8090/veterinario/findCedula?cedula=' + cedula); 
+  }
 }

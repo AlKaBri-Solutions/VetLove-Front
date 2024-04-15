@@ -62,9 +62,9 @@
                   </div>
                   <div class="flip-card__back">
                      <div class="title">Ingreso Veterinario</div>
-                     <form class="flip-card__form">
-                        <input class="flip-card__input" name="email" placeholder="Cédula" type="text" required>
-                        <input class="flip-card__input" name="contraseña" placeholder="Password" type="password" required>
+                     <form class="flip-card__form" #form="ngForm" (ngSubmit)="validarLoginVeterinario()">
+                        <input class="flip-card__input" name="email" placeholder="Cédula" type="text" required [(ngModel)]="txtCedula">
+                        <input class="flip-card__input" name="contraseña" placeholder="Password" type="password" required [(ngModel)]="txtPassword">
                         <button class="flip-card__btn">Entrar</button>
                      </form>
                      <p class="or">También puedes ingresar con</p>
@@ -89,5 +89,7 @@
 
 
   </div>
+
+  <app-popup *ngIf="mostrarPopup" [mensaje]="mensajePopup" (cerrar)="cerrarPopup()"></app-popup>
     
 </body>

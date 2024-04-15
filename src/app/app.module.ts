@@ -17,6 +17,7 @@ import { EnConstruccionComponent } from './general/en-construccion/en-construcci
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
+import { PopupComponent } from './Formularios/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
     PaginaPrincipalLoginComponent,
     EnConstruccionComponent,
     FormularioClienteComponent,
-    ErrorDefaultComponent
+    ErrorDefaultComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
