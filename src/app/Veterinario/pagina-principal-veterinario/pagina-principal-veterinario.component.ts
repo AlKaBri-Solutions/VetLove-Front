@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class PaginaPrincipalVeterinarioComponent {
   ruta: string = "/veterinario/mis-mascotas";
+  tipoUsuario: string = ""
   constructor(
     private router: Router
   ) { }

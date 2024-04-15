@@ -1,27 +1,61 @@
-<section class="seccion--perfil seccion" id="info-perfil">
-
-    <div class="lado-izq">
-        
-        <div class="card">
-            <h1 class="titulo-perfil">Perfil</h1>   
-            <div class="profileImage">
-                <img src="{{veterinario.fotoUrl}}" class="foto-perfil">
-            </div>
-            <div class="textContainer">
-              <p class="name"></p>
-            </div>
-          </div>
-    </div>
-
-    <div class="lado-der">
-        <div class="flip-card__front">
-            <div class="title">Mis Datos Actuales</div>
-            <form id="form-login" class="flip-card__form">
-             <input id ="id_nombre" type="text" class="flip-card__input" placeholder="{{veterinario.nombre}}" readonly>
-             <input id ="id_cedula" type="text" class="flip-card__input" placeholder="{{veterinario.cedula}}" readonly>
-             <input id ="id_email" type="text" class="flip-card__input" placeholder="{{veterinario.especialidad.nombre}}" readonly>
-            </form>
+<ng-container *ngIf="tipoUsuario === 'veterinario'">
+    <section class="seccion--perfil seccion" id="info-perfil">
+    
+        <div class="lado-izq">
+            
+            <div class="card">
+                <h1 class="titulo-perfil">Perfil</h1>   
+                <div class="profileImage">
+                    <img src="{{veterinario.fotoUrl}}" class="foto-perfil">
+                </div>
+                <div class="textContainer">
+                  <p class="name"></p>
+                </div>
+              </div>
         </div>
-        </div>
+    
+        <div class="lado-der">
+            <div class="flip-card__front">
+                <div class="title">Mis Datos Actuales</div>
+                <form id="form-login" class="flip-card__form">
+                 <input id ="id_nombre" type="text" class="flip-card__input" placeholder="{{veterinario.nombre}}" readonly>
+                 <input id ="id_cedula" type="text" class="flip-card__input" placeholder="{{veterinario.cedula}}" readonly>
+                 <input id ="id_email" type="text" class="flip-card__input" placeholder="{{veterinario.especialidad.nombre}}" readonly>
+                </form>
+            </div>
+            </div>
+    
+    </section>
+</ng-container>
 
-</section>
+<ng-container *ngIf = "tipoUsuario === 'cliente'" >
+    <section class="seccion--perfil seccion" id="info-perfil">
+
+        <div class="lado-izq">
+            
+            <div class="card">
+                <h1 class="titulo-perfil">Perfil</h1>   
+                <div class="profileImage">
+                    <img src="" class="foto-perfil">
+                </div>
+                <div class="textContainer">
+                  <p class="name"></p>
+                </div>
+              </div>
+        </div>
+    
+        <div class="lado-der">
+            <div class="flip-card__front">
+                <div class="title">Mis Datos Actuales</div>
+                <form id="form-login" class="flip-card__form">
+                 <input id ="id_nombre" type="text" class="flip-card__input" placeholder="{{cli.nombre}}" >
+                 <input id ="id_cedula" type="text" class="flip-card__input" placeholder="{{cli.cedula}}" >
+                 <input id ="id_email" type="text" class="flip-card__input" placeholder="{{cli.correo}}" >
+                 <input id ="id_celular" type="text" class="flip-card__input" placeholder="{{cli.celular}}" >
+                 <button class="flip-card__btn">Actualizar</button>
+                </form>
+            </div>
+            </div>
+    
+    </section>
+</ng-container>

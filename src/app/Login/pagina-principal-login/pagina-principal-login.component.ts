@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/models/Cliente';
 import { Veterinario } from 'src/app/models/Veterinario';
+import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
@@ -9,28 +11,43 @@ import { VeterinarioService } from 'src/app/servicio/veterinario.service';
   styleUrls: ['./pagina-principal-login.component.css']
 })
 export class PaginaPrincipalLoginComponent {
-  vetId1:number | null = null;
   vet: Veterinario  | null = null;
-  txtCedula = '';
-  txtPassword:string = "";  
+  txtCedulaVet = '';
+  txtPasswordVet:string = "";
+  cliente: Cliente  | null = null;
+  txtCedulaCliente = '';
   mostrarPopup = false;
   mensajePopup: string = "";
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private servicioVeterinario: VeterinarioService,
+    private servicioCliente: ClienteService
   ) { }
 
+
+  validarLoginCliente(){
+
+    console.log(this.txtCedulaCliente);
+    
+    this.servicioCliente.getClienteByCedula(this.txtCedulaCliente).subscribe({
+      next: (clienteInfo:any) => {
+        if(clienteInfo != null){
+          this.cliente = clienteInfo
+          window.location.href = "cliente/mis-mascotas?id=" + this.cliente!.id
+        }else{
+          this.cliente = null
+          this.abrirPopup("La cedula ingresada es incorrecta"); 
+        }
+      }
+    })
+  }
+
   validarLoginVeterinario(){
-    console.log(this.txtCedula)
-    this.servicioVeterinario.getVeterinarioByCedula(this.txtCedula).subscribe({
+    this.servicioVeterinario.getVeterinarioByCedula(this.txtCedulaVet).subscribe({
       next: (veterinario:any) => {
         if(veterinario != null){
-          console.log("ENTRO BIEN")
           this.vet = veterinario
-          console.log(this.vet)
-          if(this.txtPassword == this.vet!.contrasenia)
+          if(this.txtPasswordVet == this.vet!.contrasenia)
           {
               window.location.href = "veterinario/mis-mascotas?id=" + this.vet!.idVeterinario
           }else{

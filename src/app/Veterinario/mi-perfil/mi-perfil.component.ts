@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/models/Cliente';
 import { Veterinario } from 'src/app/models/Veterinario';
+import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
@@ -11,21 +13,34 @@ import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 export class MiPerfilComponent {
   vetId1 = '';
   veterinario!: Veterinario;
+  clienteId1 = '';
+  cli!: Cliente;
   souruce = "https://cdn.nubika.es/wp-content/uploads/2022/07/funciones-veterinarios.jpg";
+  @Input() 
+  tipoUsuario: string = "";
+
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private servicioVeterinario: VeterinarioService,
+    private servicioCliente: ClienteService
   ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-      this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
-        this.veterinario = veterinario
-        console.log(this.veterinario)
-      });
+      if(this.tipoUsuario === 'veterinario'){
+        this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
+        this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
+          this.veterinario = veterinario
+          console.log(this.veterinario)
+        });
+      }else if(this.tipoUsuario === 'cliente'){
+        this.clienteId1 = this.router.url.split('id=')[1].split('&')[0];
+        this.servicioCliente.getClienteById(Number(this.clienteId1)).subscribe(cli => {
+          this.cli = cli
+        });
+      }
     });
   }
 }

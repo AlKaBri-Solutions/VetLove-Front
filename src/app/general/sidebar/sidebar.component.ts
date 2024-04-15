@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 export class SidebarComponent {
   ruta!: string
   id!: number
+
+  @Input() 
+  tipoUsuario: string = "";
 
   constructor(
     private router: Router
