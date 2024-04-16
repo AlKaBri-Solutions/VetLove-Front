@@ -379,37 +379,42 @@ h3 {
 
 .row-0 {
   left: 0 !important;
-  width: 17.5% !important; 
-  
+  min-width: 9vw;
+  max-width: 9vw;
+  overflow-x: auto;
 }
 
 .row-1 {
   left: 0 !important;
-  width: 22.5% !important;
-  
+  min-width: 15vw;
+  max-width: 15vw;
+  overflow-x: auto;
   text-align: left;
 }
 
 .row-2 {
   left: 0 !important;
-  width: 25% !important;
-  
+  min-width: 22.5vw !important;
+  max-width: 22.5vw !important;
+  overflow-x: auto;
 }
 
 .row-3 {
-  width: 22.5% !important;
-  
+  min-width: 12.5vw !important;
+  max-width: 12.5vw !important;
+  overflow-x: auto;
 }
 
 .row-4 {
-  width: 12.5% !important;
-  
+  min-width: 8vw !important;
+  max-width: 8vw !important;
+  overflow-x: auto;
 }
 
 
 .row-0-h {
   padding-left: 3rem !important;
-  width: 17.5% !important;
+  width: 12.5% !important;
   
 }
 
@@ -422,13 +427,13 @@ h3 {
 
 .row-2-h {
 
-  width: 25% !important;
+  width: 30% !important;
   
 }
 
 .row-3-h {
 
-  width: 22.5% !important;
+  width: 20% !important;
   
 }
 
