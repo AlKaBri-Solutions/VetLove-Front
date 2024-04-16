@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,7 @@ import { FormularioClienteComponent } from './Formularios/formulario-cliente/for
 import { FormularioMascotaComponent } from './Formularios/formulario-mascota/formulario-mascota.component';
 import { PopupComponent } from './Formularios/popup/popup.component';
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
+import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 import { MiPerfilComponent } from './Veterinario/mi-perfil/mi-perfil.component';
 import { MisClientesComponent } from './Veterinario/mis-clientes/mis-clientes.component';
 import { MisMascotasComponent } from './Veterinario/mis-mascotas/mis-mascotas.component';
@@ -23,7 +24,6 @@ import { ErrorDefaultComponent } from './general/error-default/error-default.com
 import { PruebaComponent } from './general/prueba/prueba.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
-import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
@@ -60,8 +60,7 @@ register();
     RiveModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
   ngOnInit() {
