@@ -17,6 +17,7 @@ export class MisMascotasComponent {
   vet!: any;
   cliId1 = '';
   cli!: any;
+  filtro: string = '';
   @Input()
   tipoUsuario: string = '';
   constructor(
@@ -78,4 +79,16 @@ export class MisMascotasComponent {
       }
     }
   }
+
+
+  aplicarFiltro() {
+    return this.mascotaList.filter(mascota =>
+      mascota.nombre.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      mascota.raza.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      mascota.edad.toString().toLowerCase().includes(this.filtro.toLowerCase()) ||
+      mascota.estado.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+    );
+  }
+  
+
 }

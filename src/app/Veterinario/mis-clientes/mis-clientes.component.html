@@ -15,7 +15,7 @@
               </div>
         </a>
         <div class="container">
-            <input type="text" name="text" class="input" required="" placeholder="Escribe para encontrar un cliente...">
+            <input type="text" name="text" class="input" required="" placeholder="Escribe para encontrar un cliente..." [(ngModel)]="filtro">
             <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                     <title>Search</title>
@@ -42,7 +42,7 @@
         </table>
     </div>
     <div class="contenedor-tabla">
-        <ng-container *ngFor="let cliente of clientList">
+        <ng-container *ngFor="let cliente of aplicarFiltro()">
             <table id="tabla-mascotas-body" class="tabla-mascotas">
                 <ng-container *ngIf="cliente">
                     <tbody>
