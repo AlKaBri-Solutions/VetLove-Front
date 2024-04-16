@@ -21,7 +21,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnConstruccionComponent } from './general/en-construccion/en-construccion.component';
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
-import { PruebaComponent } from './general/prueba/prueba.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 
@@ -48,7 +47,6 @@ register();
     PopupComponent,
     AnimacionPersonaComponent,
     AnimacionPerroComponent,
-    PruebaComponent,
     DetalleMascotaComponent
   ],
   imports: [

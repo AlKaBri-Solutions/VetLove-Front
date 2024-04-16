@@ -47,12 +47,20 @@
             [(ngModel)]="formMascota.raza">
           <input id="id_imagen" class="flip-card__input" placeholder="Url imagen" type="text" name="foto"
             [(ngModel)]="formMascota.foto">
-          <input id="id_edad" class="flip-card__input" placeholder="Edad" type="number" name="edad"
-            [(ngModel)]="formMascota.edad"> 
-              
             
-          <input id="id_peso" class="flip-card__input" placeholder="Peso" type="number" name="peso"
-            [(ngModel)]="formMascota.peso"> 
+            <div class="tooltip-container">
+              <input id="id_edad" class="flip-card__input" placeholder="Edad" type="number" name="edad" [(ngModel)]="formMascota.edad"> 
+              <span class="tooltip">Ingresar Edad en años</span>
+              
+            </div>
+            
+            <div class="tooltip-container">
+              <input id="id_peso" class="flip-card__input" placeholder="Peso" type="number" name="peso" [(ngModel)]="formMascota.peso"> 
+              <span class="tooltip">Ingresar Peso en g</span>
+              
+            </div>
+            
+          
 
         </ng-container>
         <ng-container *ngIf="esActualizar">
@@ -62,10 +70,18 @@
           [(ngModel)]="formMascota.raza">
         <input id="id_imagen" class="flip-card__input" placeholder="{{formMascota.foto}}" type="text" name="foto"
           [(ngModel)]="formMascota.foto">
-        <input id="id_edad" class="flip-card__input" placeholder="{{formMascota.edad}}" type="number" name="edad"
-          [(ngModel)]="formMascota.edad">
-        <input id="id_peso" class="flip-card__input" placeholder="{{formMascota.peso}}" type="number" name="peso"
-          [(ngModel)]="formMascota.peso">
+
+          <div class="tooltip-container">
+            <input id="id_edad" class="flip-card__input" placeholder="{{formMascota.edad}}" type="number" name="edad" [(ngModel)]="formMascota.edad">
+            <span class="tooltip">Ingresar Edad en años</span>
+            
+          </div>
+          
+          <div class="tooltip-container">
+            <input id="id_peso" class="flip-card__input" placeholder="{{formMascota.peso}}" type="number" name="peso" [(ngModel)]="formMascota.peso">
+            <span class="tooltip">Ingresar Peso en g</span>
+            
+          </div>
         </ng-container>
 
 

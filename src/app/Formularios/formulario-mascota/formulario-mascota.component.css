@@ -301,4 +301,54 @@ section {
     transform: translateX(-56px);
   }
   
+  .tooltip-container {
+
+    position: relative;
+    
+    transition: all 0.2s;
+    width: 250px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .tooltip {
+    --background-tooltip: #000C4F; /* Default background color for tooltip */
+    position: absolute;
+    top: -39px; /* Adjusted top position */
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.2em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    background: var(--background-tooltip);
+    color: white; /* Text color */
+    border-radius: 60px;
+    width: 210px;
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 0.6em;
+    width: 0.6em;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    background: var(
+      --background-tooltip
+    ); /* Use the same background color as the tooltip */
+  }
+  
+  .tooltip-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
   
