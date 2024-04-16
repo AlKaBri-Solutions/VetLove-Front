@@ -72,7 +72,7 @@
         <h1 id="mision"><strong>Nuestra Misión</strong></h1>
 
         <!-- Swiper -->
-        <div class="swiper-container mySwiper #swiper">
+        <div class="swiper-container mySwiper #swiper" slides-per-view = "auto" space-between = "30" speed="800" autoplay-delay = "4000" autoplay-disable-on-interaction = "true" pagination-el = ".swiper-pagination" dynamic-bullets="true" keyboard-enabled = "true" navigation-next-el = ".swiper-button-next" navigation-prev-el = ".swiper-button-prev">
             <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="../../../assets/images/slide3.jpg" alt="Slide1" class="img-slide1">
@@ -81,7 +81,10 @@
                             <span class="solar--health-linear"></span>
                             <h2>Clínica Veterinaria 24/7</h2>
                             <p>Somos una veterinaria dispuesta a recibir a tu mascota a la hora que necesites</p>
-                        </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                          </div>
                         
                     </div>
                     <div class="swiper-slide">
@@ -91,7 +94,10 @@
                             <span class="maki--doctor"></span>
                             <h2>Mejores especialistas</h2>
                             <p>Contamos con los mejorers especialistas del país para atender de la mejor forma a tu mascota</p>
-                        </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                          </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="../../../assets/images/slide1.jpg" alt="Slide1" class="img-slide3">
@@ -100,12 +106,12 @@
                             <span class="mdi--paw"></span>
                             <h2>Atención 5 estrellas</h2>
                             <p>Nos especializamos en atender de la mejor manera a tu mascota, para que se sienta tan amada como en casa</p>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
-            </div>
-            <div class="swiper-button-next" click="slideNext()"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+                  </div>
             
             
         </div>

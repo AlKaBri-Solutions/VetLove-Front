@@ -23,6 +23,11 @@ import { AnimacionPerroComponent } from './animaciones/animacion-perro/animacion
 import { RiveModule } from 'ng-rive';
 import { CommonModule } from '@angular/common';
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
 @NgModule({
   declarations: [
     AppComponent,
