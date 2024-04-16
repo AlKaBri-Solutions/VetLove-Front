@@ -14,6 +14,7 @@ export class MisClientesComponent {
   vetId1 = '';
   url:string = "";
   vet!:any;
+  filtro: string = '';
 
   constructor(
     private router: Router,
@@ -32,5 +33,14 @@ export class MisClientesComponent {
         this.vet = veterinario
       });
     });
+  }
+
+  aplicarFiltro() {
+    return this.clientList.filter(cliente =>
+      cliente.cedula.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      cliente.nombre.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      cliente.correo.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      cliente.celular.toLowerCase().includes(this.filtro.toLowerCase())
+    );
   }
 }

@@ -19,7 +19,7 @@
     
             <div class="container">
                 <input type="text" name="text" id="filtro" class="input" required=""
-                    placeholder="Escribe para encontrar una mascota...">
+                    placeholder="Escribe para encontrar una mascota..." [(ngModel)]="filtro">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                         <title>Search</title>
@@ -48,7 +48,7 @@
             </table>
         </div>
         <div class="contenedor-tabla">
-            <ng-container *ngFor="let mascota of mascotaList">
+            <ng-container *ngFor="let mascota of aplicarFiltro()">
                 <table id="tabla-mascotas-body" class="tabla-mascotas">
                     <ng-container *ngIf="mascota">
                         <tbody>
@@ -155,7 +155,7 @@
         <div class="contenedor-lo-que-sea">
             <div class="container">
                 <input type="text" name="text" id="filtro" class="input" required=""
-                    placeholder="Escribe para encontrar una mascota...">
+                    placeholder="Escribe para encontrar una mascota..." [(ngModel)]="filtro">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                         <title>Search</title>
@@ -183,7 +183,7 @@
             </table>
         </div>
         <div class="contenedor-tabla">
-            <ng-container *ngFor="let mascota of mascotaList">
+            <ng-container *ngFor="let mascota of aplicarFiltro()">
                 <table id="tabla-mascotas-body" class="tabla-mascotas">
                     <ng-container *ngIf="mascota">
                         <tbody>
