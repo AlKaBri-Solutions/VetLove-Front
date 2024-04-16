@@ -18,6 +18,10 @@ import { ErrorDefaultComponent } from './general/error-default/error-default.com
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { PopupComponent } from './Formularios/popup/popup.component';
+import { AnimacionPersonaComponent } from './animaciones/animacion-persona/animacion-persona.component';
+import { AnimacionPerroComponent } from './animaciones/animacion-perro/animacion-perro.component';
+import { RiveModule } from 'ng-rive';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,13 +38,17 @@ import { PopupComponent } from './Formularios/popup/popup.component';
     EnConstruccionComponent,
     FormularioClienteComponent,
     ErrorDefaultComponent,
-    PopupComponent
+    PopupComponent,
+    AnimacionPersonaComponent,
+    AnimacionPerroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
+    RiveModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

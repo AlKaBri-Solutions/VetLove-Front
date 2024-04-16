@@ -1,5 +1,7 @@
 <!-- Cuando es Veterinario -->
-<app-sidebar  [tipoUsuario]="'veterinario'"></app-sidebar>
+<ng-container *ngIf="ruta.includes('/veterinario')">
+    <app-sidebar  [tipoUsuario]="'veterinario'"></app-sidebar>
+</ng-container>
 <ng-container *ngIf="ruta == '/veterinario/mis-mascotas' || ruta == '/veterinario'">
     <app-mis-mascotas [tipoUsuario]="'veterinario'"></app-mis-mascotas>
 </ng-container>
@@ -15,7 +17,9 @@
 
 
 <!-- Contenido para el cliente -->
-<app-sidebar  [tipoUsuario]="'cliente'"></app-sidebar>
+<ng-container *ngIf="ruta.includes('/cliente')">
+    <app-sidebar  [tipoUsuario]="'cliente'"></app-sidebar>
+</ng-container>
 <ng-container *ngIf="ruta == '/cliente/mis-mascotas'">
     <app-mis-mascotas [tipoUsuario]="'cliente'"></app-mis-mascotas>
 </ng-container>

@@ -14,10 +14,30 @@ export class MiPerfilComponent {
   vetId1 = '';
   veterinario!: Veterinario;
   clienteId1 = '';
-  cli!: Cliente;
+  cli!:Cliente
   souruce = "https://cdn.nubika.es/wp-content/uploads/2022/07/funciones-veterinarios.jpg";
   @Input() 
   tipoUsuario: string = "";
+  mostrarPopup = false;
+  mensajePopup: string = "";
+  formCliente: Cliente = {
+    id: 0,
+    nombre: '',
+    correo: '',
+    celular: '',
+    cedula: '',
+    veterinario: {
+      idVeterinario: 0,
+      cedula: '',
+      nombre: '',
+      contrasenia: '',
+      fotoUrl: '',
+      especialidad: {
+        idEspecialidad: 0,
+        nombre: ''
+      }
+    }
+  }
 
 
   constructor(
@@ -43,4 +63,23 @@ export class MiPerfilComponent {
       }
     });
   }
+
+
+
+  actualizarCliente(cliente: Cliente){
+        this.servicioCliente.updateCliente(cliente).subscribe(cli => {
+          cliente = cli
+          this.abrirPopup("Tu información ha sido actualizado con exito");
+        });
+  }
+
+  abrirPopup(mensaje: string) {
+    this.mensajePopup = mensaje;
+    this.mostrarPopup = true;
+  }
+
+  cerrarPopup() {
+    this.mostrarPopup = false;
+  }
+
 }
