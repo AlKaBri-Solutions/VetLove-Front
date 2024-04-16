@@ -1,14 +1,28 @@
-<app-sidebar></app-sidebar>
+<!-- Cuando es Veterinario -->
+<ng-container *ngIf="ruta.includes('/veterinario')">
+    <app-sidebar  [tipoUsuario]="'veterinario'"></app-sidebar>
+</ng-container>
 <ng-container *ngIf="ruta == '/veterinario/mis-mascotas' || ruta == '/veterinario'">
-    <app-mis-mascotas></app-mis-mascotas>
-
+    <app-mis-mascotas [tipoUsuario]="'veterinario'"></app-mis-mascotas>
 </ng-container>
 <ng-container *ngIf="ruta == '/veterinario/mis-tratamientos'">
-    <app-en-construccion></app-en-construccion>
+    <app-en-construccion ></app-en-construccion>
 </ng-container>
 <ng-container *ngIf="ruta == '/veterinario/mis-clientes'">
     <app-mis-clientes></app-mis-clientes>
 </ng-container>
 <ng-container *ngIf="ruta == '/veterinario/mi-perfil'">
-    <app-mi-perfil></app-mi-perfil>
+    <app-mi-perfil [tipoUsuario]="'veterinario'"></app-mi-perfil>
+</ng-container>
+
+
+<!-- Contenido para el cliente -->
+<ng-container *ngIf="ruta.includes('/cliente')">
+    <app-sidebar  [tipoUsuario]="'cliente'"></app-sidebar>
+</ng-container>
+<ng-container *ngIf="ruta == '/cliente/mis-mascotas'">
+    <app-mis-mascotas [tipoUsuario]="'cliente'"></app-mis-mascotas>
+</ng-container>
+<ng-container *ngIf="ruta == '/cliente/mi-perfil'">
+    <app-mi-perfil [tipoUsuario]="'cliente'"></app-mi-perfil>
 </ng-container>

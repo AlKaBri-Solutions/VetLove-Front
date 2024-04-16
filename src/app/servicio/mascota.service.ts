@@ -29,6 +29,10 @@ export class MascotaService {
     return this.http.get<Mascota[]>('http://localhost:8090/mascota/veterinario?id=' + id);
   }
 
+  getMascotasByClienteId(id: number) {
+    return this.http.get<Mascota[]>('http://localhost:8090/mascota/client?id=' + id);
+  }
+
   saveMascota(mascota: Mascota) {
     const params = {
       cedula: mascota.dueno.cedula,

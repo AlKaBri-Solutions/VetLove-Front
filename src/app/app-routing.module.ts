@@ -1,8 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { RiveModule } from 'ng-rive';
 import { FormularioClienteComponent } from './Formularios/formulario-cliente/formulario-cliente.component';
 import { FormularioMascotaComponent } from './Formularios/formulario-mascota/formulario-mascota.component';
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
+import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
 import { PruebaComponent } from './general/prueba/prueba.component';
@@ -16,17 +21,25 @@ const routes: Routes = [
   {path: 'veterinario/mis-tratamientos', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/mis-clientes', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
+  {path: 'cliente/mis-mascotas', component: PaginaPrincipalVeterinarioComponent},
+  {path: 'cliente/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/add-mascota', component: FormularioMascotaComponent},
   {path: 'veterinario/update-mascota', component: FormularioMascotaComponent},
   {path: 'veterinario/add-cliente', component: FormularioClienteComponent},
   {path: 'veterinario/update-cliente', component: FormularioClienteComponent},
+  {path: 'mascota/info-mascota', component: DetalleMascotaComponent},
   {path: 'prueba', component: PruebaComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    RiveModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
