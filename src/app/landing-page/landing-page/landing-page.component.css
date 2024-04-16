@@ -4,7 +4,12 @@ html{
     max-width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
-} 
+    background-color: #FFECD5;
+    
+}
+
+body {
+}
 
 * {
     margin: 0px;
@@ -593,7 +598,7 @@ footer a{
     justify-content: space-evenly;
     align-items: center;
     height: 40%;
-    width: 40%;
+
     border-radius: 60px;
   }
 
@@ -743,7 +748,7 @@ footer a{
   position: relative;
   box-shadow: #604b4a30 0px 70px 30px -50px;
   transition: all 0.5s ease-in-out;
-  margin: 2%;
+  margin-top: 1%;
 }
 .card .profile-pic {
   position: absolute;

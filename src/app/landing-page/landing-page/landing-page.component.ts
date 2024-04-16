@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import Swiper from 'swiper';
-
 
 @Component({
   selector: 'app-landing-page',
@@ -16,34 +14,14 @@ export class LandingPageComponent {
   }
 
 
-  constructor() { }
+
+  constructor() {
+   }
 
   ngAfterViewInit(): void {
     // Inicialización de Swiper después de que la vista del componente se haya inicializado
 
 
-
-
-    const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 80,
-      speed: 800,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
-      keyboard: {
-        enabled: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
   }
 
 }

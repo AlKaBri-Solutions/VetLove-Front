@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,7 @@ import { EnConstruccionComponent } from './general/en-construccion/en-construcci
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
+import { PruebaComponent } from './general/prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
     PaginaPrincipalLoginComponent,
     EnConstruccionComponent,
     FormularioClienteComponent,
-    ErrorDefaultComponent
+    ErrorDefaultComponent,
+    PruebaComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,10 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+  ngOnInit() {
+  }
+ }

@@ -4,6 +4,7 @@ html{
     max-width: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-image: url("../src/assets/images/fondov1.png");
 } 
 
 * {

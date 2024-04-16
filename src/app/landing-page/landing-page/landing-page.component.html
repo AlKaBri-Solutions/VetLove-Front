@@ -1,290 +1,302 @@
-    <head>
-        <!--Link para poder usar la libreria sin tener que ser descargada-->
+<!-- <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    </head>
-    
-    
-    <!--Encabazado de la pagina-->
-    <header id = "encabezado">
-        <!--Logo Verison 2-->
-        <div id="encabezado-logo">
-            <img src="../../../assets/images/logov2.png" alt="VetLoveLogo">
-            <div class="contenido-encabezado-logo">
-                <h3>VetLove</h3>
-                <p>Hospital de Animales</p>
+        
+    </head> -->
+
+
+<!--Encabazado de la pagina-->
+<header id="encabezado">
+  <!--Logo Verison 2-->
+  <div id="encabezado-logo">
+    <img src="../../../assets/images/logov2.png" alt="VetLoveLogo">
+    <div class="contenido-encabezado-logo">
+      <h3>VetLove</h3>
+      <p>Hospital de Animales</p>
+    </div>
+  </div>
+
+  <div id="encabezado-menu">
+    <div id="navegador-menu">
+      <nav id="navegador-principal">
+
+        <ul>
+          <li id="item-navegacion-inicio"><a href="">INICIO</a></li>
+          <li id="item-navegacion-somos"><a href="#inicio-secundario">NUESTRA MISIÓN</a></li>
+          <li id="item-navegacion-servicios"><a href="#servicios">SERVICIOS</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <button class="boton-accion">
+      <div class="icono-boton"><strong>Agendar</strong></div>
+      <div class="icono-boton-accion">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="M12 14q-.425 0-.712-.288T11 13q0-.425.288-.712T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14m-4 0q-.425 0-.712-.288T7 13q0-.425.288-.712T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14m8 0q-.425 0-.712-.288T15 13q0-.425.288-.712T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14m-4 4q-.425 0-.712-.288T11 17q0-.425.288-.712T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18m-4 0q-.425 0-.712-.288T7 17q0-.425.288-.712T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18m8 0q-.425 0-.712-.288T15 17q0-.425.288-.712T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5z" />
+        </svg>
+      </div>
+    </button>
+    <button class="boton-accion" onclick="window.location.href='/login'">
+      <div class="icono-boton"><strong>Login</strong></div>
+      <div class="icono-boton-accion">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <g fill="none">
+            <path
+              d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+            <path fill="currentColor"
+              d="M16 14a5 5 0 0 1 4.995 4.783L21 19v1a2 2 0 0 1-1.85 1.995L19 22H5a2 2 0 0 1-1.995-1.85L3 20v-1a5 5 0 0 1 4.783-4.995L8 14zM12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10" />
+          </g>
+        </svg>
+      </div>
+    </button>
+  </div>
+</header>
+
+<!--Cuerpo de la pagina-->
+<section id="inicio-principal">
+  <div class="contenedor-parrafo">
+    <p class="parrafo-bienvenida">
+      Donde cada visita es una muestra de <span class="resaltado"> amor </span> y cuidado
+
+    </p>
+
+    <button class="nuestra-mision" id="btn-nuestra-mision"
+      onClick="document.getElementById('inicio-secundario').scrollIntoView();">
+      <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+      </span>
+      <span class="button-text"><strong>CONOCE MÁS</strong></span>
+    </button>
+
+  </div>
+
+  <div class="contenedor-imagen-principal">
+    <img src="../../../assets/images/inicio-principalv2.jpg" alt="Golden Cachorro">
+  </div>
+</section>
+
+<section id="inicio-secundario">
+
+  <h1 id="mision"><strong>Nuestra Misión</strong></h1>
+
+  <!-- Swiper -->
+  <swiper-container class="swiper-container mySwiper" navigation="true" slides-per-view="1" speed="500" loop="true"
+    css-mode="true">
+    <swiper-slide class="swiper-slide">
+      <img src="../../../assets/images/slide3.jpg" alt="Slide1" class="img-slide1">
+
+      <div class="contenido-slide">
+        <span class="solar--health-linear"></span>
+        <h2>Clínica Veterinaria 24/7</h2>
+        <p>Somos una veterinaria dispuesta a recibir a tu mascota a la hora que necesites</p>
+      </div>
+    </swiper-slide>
+    <!-- <swiper-slide class="swiper-slide">
+            <img src="../../../assets/images/slide2.jpg" alt="Slide1" class="img-slide2">
+
+            <div class="contenido-slide">
+                <span class="maki--doctor"></span>
+                <h2>Mejores especialistas</h2>
+                <p>Contamos con los mejorers especialistas del país para atender de la mejor forma a tu mascota</p>
             </div>
-        </div>
-
-        <div id="encabezado-menu">
-            <div id="navegador-menu">
-                <nav id="navegador-principal">
-
-                    <ul>
-                        <li id = "item-navegacion-inicio"><a href="">INICIO</a></li>
-                        <li id = "item-navegacion-somos"><a href="#inicio-secundario">NUESTRA MISIÓN</a></li>
-                        <li id = "item-navegacion-servicios"><a href="#servicios">SERVICIOS</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            
-
-            <button class="boton-accion">
-                <div class="icono-boton"><strong>Agendar</strong></div>
-                <div class="icono-boton-accion">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 14q-.425 0-.712-.288T11 13q0-.425.288-.712T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14m-4 0q-.425 0-.712-.288T7 13q0-.425.288-.712T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14m8 0q-.425 0-.712-.288T15 13q0-.425.288-.712T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14m-4 4q-.425 0-.712-.288T11 17q0-.425.288-.712T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18m-4 0q-.425 0-.712-.288T7 17q0-.425.288-.712T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18m8 0q-.425 0-.712-.288T15 17q0-.425.288-.712T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5z"/></svg>
-                </div>
-              </button>
-              <button class="boton-accion" onclick="window.location.href='/login'">
-                <div class="icono-boton"><strong>Login</strong></div>
-                <div class="icono-boton-accion">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M16 14a5 5 0 0 1 4.995 4.783L21 19v1a2 2 0 0 1-1.85 1.995L19 22H5a2 2 0 0 1-1.995-1.85L3 20v-1a5 5 0 0 1 4.783-4.995L8 14zM12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10"/></g></svg>
-                </div>
-              </button>
-        </div>
-    </header>
-
-    <!--Cuerpo de la pagina-->
-    <section id="inicio-principal">
-        <div class="contenedor-parrafo">
-            <p class = "parrafo-bienvenida">
-                Donde cada visita es una muestra de <span class="resaltado"> amor </span> y cuidado
-                
-            </p>
-
-            <button class="nuestra-mision" id="btn-nuestra-mision" onClick="document.getElementById('inicio-secundario').scrollIntoView();">
-                <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-                </span>
-                <span class="button-text"><strong>CONOCE MÁS</strong></span>
-            </button>
-            
-        </div>
-
-        <div class="contenedor-imagen-principal">
-            <img src="../../../assets/images/inicio-principalv2.jpg" alt="Golden Cachorro">
-        </div>
-    </section>
-
-    <section id="inicio-secundario">
-
-        <h1 id="mision"><strong>Nuestra Misión</strong></h1>
-
-        <!-- Swiper -->
-        <div class="swiper-container mySwiper #swiper">
-            <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="../../../assets/images/slide3.jpg" alt="Slide1" class="img-slide1">
-
-                        <div class="contenido-slide">
-                            <span class="solar--health-linear"></span>
-                            <h2>Clínica Veterinaria 24/7</h2>
-                            <p>Somos una veterinaria dispuesta a recibir a tu mascota a la hora que necesites</p>
-                        </div>
-                        
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="../../../assets/images/slide2.jpg" alt="Slide1" class="img-slide2">
-
-                        <div class="contenido-slide">
-                            <span class="maki--doctor"></span>
-                            <h2>Mejores especialistas</h2>
-                            <p>Contamos con los mejorers especialistas del país para atender de la mejor forma a tu mascota</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="../../../assets/images/slide1.jpg" alt="Slide1" class="img-slide3">
+          </swiper-slide>
+          <swiper-slide class="swiper-slide">
+            <img src="../../../assets/images/slide1.jpg" alt="Slide1" class="img-slide3">
 
                         <div class="contenido-slide">
                             <span class="mdi--paw"></span>
                             <h2>Atención 5 estrellas</h2>
                             <p>Nos especializamos en atender de la mejor manera a tu mascota, para que se sienta tan amada como en casa</p>
                         </div>
-                    </div>
-            </div>
-            <div class="swiper-button-next" click="slideNext()"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-            
-            
+          </swiper-slide> -->
+  </swiper-container>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+
+</section>
+
+<section id="servicios">
+  <h1>Nuestros Servicios</h1>
+
+  <div class="contenedor-servicios">
+    <div class="card">
+      <div class="profile-pic">
+        <img src="../../../assets/images/esteticacanina.jpeg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            ¡Haz que tu mascota luzca impecable! Nuestros expertos en estética canina se encargarán de mimar a tu
+            mascota y dejarla radiante.
+          </span>
         </div>
-
-    </section>
-    
-    <section id="servicios">
-        <h1>Nuestros Servicios</h1>
-
-        <div class="contenedor-servicios">
-            <div class="card">
-                <div class="profile-pic">
-                    <img src="../../../assets/images/esteticacanina.jpeg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        ¡Haz que tu mascota luzca impecable! Nuestros expertos en estética canina se encargarán de mimar a tu mascota y dejarla radiante.
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                    <div class="social-links-container">
-                      <span class="nom-servicio">Estética</span>
-                    </div>
-                    <button class="button">Agendar Ahora</button>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="card">
-                <div class="profile-pic">
-                    <img src="../../../assets/images/citageneral.jpeg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        Tu mejor amigo merece lo mejor. Agenda una cita general para un chequeo completo y garantiza su bienestar.
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                    <div class="social-links-container">
-                      <span class="nom-servicio">Cita General</span>
-                    </div>
-                    <button class="button">Agendar Ahora</button>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="card">
-                <div class="profile-pic">
-                    <img class="especialista" src="../../../assets/images/cita-especialista.jpg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        Cuando tu mascota necesita atención especializada, estamos aquí para ayudar. Agenda una cita con los mejores especialistas
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                    <div class="social-links-container">
-                      <span class="nom-servicio tres">Cita con <br>Especialista</span>
-                    </div>
-                    <button class="button centrar">Agendar Ahora</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="profile-pic">
-                    <img class="imagen-diagnostica" src="../../../assets/images/imagen-diagnostica.jpg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        Con nuestras avanzadas imágenes diagnósticas, podemos obtener una visión clara y precisa para un diagnóstico acertado.
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                    <div class="social-links-container">
-                      <span class="nom-servicio cuatro">Imágenes <br> Diagnósticas</span>
-                    </div>
-                    <button class="button centrar">Agendar Ahora</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="profile-pic">
-                    <img class="cirugia" src="../../../assets/images/cirugia-canina.jpg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        En momentos críticos, confía en nuestros cirujanos expertos para cuidar a tu mascota. Recuerda que la salud de tu mascota es nuestra prioridad
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                        <div class="social-links-container">
-                            <span class="nom-servicio cinco ">Cirugía</span>
-                        </div>
-                  </div>
-                </div>
-              
-            </div>
-
-
-
-              <div class="card">
-                <div class="profile-pic">
-                    <img src="../../../assets/images/hospitalizacion.jpg" alt="">
-                </div>
-                <div class="bottom">
-                  <div class="content">
-                    <span class="name"></span>
-                    <span class="about-me">
-                        Proporcionamos un ambiente cálido y seguro para la hospitalización de tu mascota, con atención 24 horas
-                    </span>
-                  </div>
-                  <div class="bottom-bottom">
-                    <div class="social-links-container">
-                      <span class="nom-servicio seis">Hospitalización</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio">Estética</span>
+          </div>
+          <button class="button">Agendar Ahora</button>
         </div>
-          
-    </section>
+      </div>
+    </div>
 
-    <!--Footer de la pagina-->
-    <footer>
-        <div class="row">
-            <h2>Donde cada visita es una muestra de amor y cuidado</h2>
-        </div>
-        <div class="row content">
-            <div class="half">
-                <h3>Nosotros</h3>
-                <a href="">¿Quiénes somos?</a>
-                <a href="">Trabaja con nosotros</a>
-                <a href="">Nuestra Misión</a>
-                <a href="">Historia</a>
-            </div>
-            <div class="half">
-                <h3>Servicios</h3>
-                <a href="">Atención 24/7</a>
-                <a href="">Veterinaria general</a>
-                <a href="">Especialistas</a>
-                <a href="">Servicios estéticos</a>
-            </div>
-            <div id="half-logo"class="half logo">
-                <img src="../../../assets/images/logov2.png" alt="VetLoveLogo" class="footer-logo">
-            </div>
-            <div class="half">
-                <h3>Dónde estamos</h3>
-                <a href="">Sede Bogotá: Calle 40 con 7a</a>
-                <a href="">Sede Bogotá: Calle 145 con 15</a>
-                <a href="">Sede Cali</a>
-                <a href="">Sede Miami</a>
-            </div>
-            <div class="half">
-                <h3>Contáctanos</h3>
-                <a href="">Atención al usuario</a>
-                <a href="">Lista de especialistas</a>
-                <a href="">Facturación</a>
-                <a href="">Blog</a>
-            </div>
-        </div>
-        <div class="row trademark">
-            <p id="trademark">© 2024 VetLove. Todos los derechos reservados.</p>
-        </div>
-        
-    </footer>
 
-    <script src="../../../assets/js/inicio.js"></script>
+
+    <div class="card">
+      <div class="profile-pic">
+        <img src="../../../assets/images/citageneral.jpeg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            Tu mejor amigo merece lo mejor. Agenda una cita general para un chequeo completo y garantiza su bienestar.
+          </span>
+        </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio">Cita General</span>
+          </div>
+          <button class="button">Agendar Ahora</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="profile-pic">
+        <img class="especialista" src="../../../assets/images/cita-especialista.jpg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            Cuando tu mascota necesita atención especializada, estamos aquí para ayudar. Agenda una cita con los mejores
+            especialistas
+          </span>
+        </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio tres">Cita con <br>Especialista</span>
+          </div>
+          <button class="button centrar">Agendar Ahora</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="profile-pic">
+        <img class="imagen-diagnostica" src="../../../assets/images/imagen-diagnostica.jpg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            Con nuestras avanzadas imágenes diagnósticas, podemos obtener una visión clara y precisa para un diagnóstico
+            acertado.
+          </span>
+        </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio cuatro">Imágenes <br> Diagnósticas</span>
+          </div>
+          <button class="button centrar">Agendar Ahora</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="profile-pic">
+        <img class="cirugia" src="../../../assets/images/cirugia-canina.jpg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            En momentos críticos, confía en nuestros cirujanos expertos para cuidar a tu mascota. Recuerda que la salud
+            de tu mascota es nuestra prioridad
+          </span>
+        </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio cinco ">Cirugía</span>
+          </div>
+          <button class="button centrar">Agendar Ahora</button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+      <div class="profile-pic">
+        <img src="../../../assets/images/hospitalizacion.jpg" alt="">
+      </div>
+      <div class="bottom">
+        <div class="content">
+          <span class="name"></span>
+          <span class="about-me">
+            Proporcionamos un ambiente cálido y seguro para la hospitalización de tu mascota, con atención 24 horas
+          </span>
+        </div>
+        <div class="bottom-bottom">
+          <div class="social-links-container">
+            <span class="nom-servicio seis">Hospitalizar</span>
+          </div>
+          <button class="button centrar">Agendar Ahora</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!--Footer de la pagina-->
+<footer>
+  <div class="row">
+    <h2>Donde cada visita es una muestra de amor y cuidado</h2>
+  </div>
+  <div class="row content">
+    <div class="half">
+      <h3>Nosotros</h3>
+      <a href="">¿Quiénes somos?</a>
+      <a href="">Trabaja con nosotros</a>
+      <a href="">Nuestra Misión</a>
+      <a href="">Historia</a>
+    </div>
+    <div class="half">
+      <h3>Servicios</h3>
+      <a href="">Atención 24/7</a>
+      <a href="">Veterinaria general</a>
+      <a href="">Especialistas</a>
+      <a href="">Servicios estéticos</a>
+    </div>
+    <div id="half-logo" class="half logo">
+      <img src="../../../assets/images/logov2.png" alt="VetLoveLogo" class="footer-logo">
+    </div>
+    <div class="half">
+      <h3>Dónde estamos</h3>
+      <a href="">Sede Bogotá: Calle 40 con 7a</a>
+      <a href="">Sede Bogotá: Calle 145 con 15</a>
+      <a href="">Sede Cali</a>
+      <a href="">Sede Miami</a>
+    </div>
+    <div class="half">
+      <h3>Contáctanos</h3>
+      <a href="">Atención al usuario</a>
+      <a href="">Lista de especialistas</a>
+      <a href="">Facturación</a>
+      <a href="">Blog</a>
+    </div>
+  </div>
+  <div class="row trademark">
+    <p id="trademark">© 2024 VetLove. Todos los derechos reservados.</p>
+  </div>
+
+</footer>
+
+<script src="../../../assets/js/inicio.js"></script>

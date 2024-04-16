@@ -66,7 +66,7 @@ export class FormularioClienteComponent {
       })
     }
     else {
-      this.servicioCliente.updateCliente(clienteForm).subscribe(cliente => {
+      this.servicioCliente.updateCliente(clienteForm, this.vetId1).subscribe(cliente => {
         this.addClienteEvent.emit(cliente);
         this.router.navigate(['/veterinario/mis-clientes'], {queryParams: {id: this.vetId1}});
       })

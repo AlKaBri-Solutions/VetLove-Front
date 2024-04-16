@@ -33,7 +33,12 @@ export class ClienteService {
     return this.http.post<Cliente>('http://localhost:8090/cliente/add', params);
   }
 
-  updateCliente(cliente: Cliente) {
-    return this.http.put<Cliente>('http://localhost:8090/cliente/update', cliente);
+  updateCliente(cliente: Cliente, id: string) {
+    const params = {
+      id: id,
+      cliente: cliente
+    }
+    console.log(params)
+    return this.http.put<Cliente>('http://localhost:8090/cliente/update', params);
   }
 }

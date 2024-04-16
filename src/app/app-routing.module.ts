@@ -5,6 +5,7 @@ import { FormularioMascotaComponent } from './Formularios/formulario-mascota/for
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
 import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
+import { PruebaComponent } from './general/prueba/prueba.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'veterinario/update-mascota', component: FormularioMascotaComponent},
   {path: 'veterinario/add-cliente', component: FormularioClienteComponent},
   {path: 'veterinario/update-cliente', component: FormularioClienteComponent},
+  {path: 'prueba', component: PruebaComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},
 ];
