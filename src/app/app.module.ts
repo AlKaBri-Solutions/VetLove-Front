@@ -25,6 +25,11 @@ import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
 @NgModule({
   declarations: [
     AppComponent,
