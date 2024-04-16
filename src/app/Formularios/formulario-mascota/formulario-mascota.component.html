@@ -23,14 +23,19 @@
     <div class="contenedor-titulo">
       <h1 class="titulo-principal">Mascota</h1>
       <div class="contenedor-animacion">
-        <canvas id="canvas" width="250" height="250"></canvas>
+        <app-animacion-perro></app-animacion-perro>
       </div>
     </div>
   </div>
 
   <div class="lado-der">
     <div class="flip-card__front">
-      <div class="title">Registrar Mascota</div>
+      <ng-container *ngIf="!esActualizar">
+        <div class="title">Registrar Mascota</div>
+      </ng-container>
+      <ng-container *ngIf="esActualizar">
+        <div class="title">Actualizar Mascota</div>
+      </ng-container>
 
       <form id="form-login" class="flip-card__form">
         <ng-container *ngIf="!esActualizar">
@@ -42,10 +47,8 @@
             [(ngModel)]="formMascota.raza">
           <input id="id_imagen" class="flip-card__input" placeholder="Url imagen" type="text" name="foto"
             [(ngModel)]="formMascota.foto">
-            <label for="id_edad">Edad: ej. 1</label>
           <input id="id_edad" class="flip-card__input" placeholder="Edad" type="number" name="edad"
             [(ngModel)]="formMascota.edad">
-            <label for="id_peso">Peso: ej. 3000</label>
           <input id="id_peso" class="flip-card__input" placeholder="Peso" type="number" name="peso"
             [(ngModel)]="formMascota.peso">
 
@@ -57,10 +60,8 @@
           [(ngModel)]="formMascota.raza">
         <input id="id_imagen" class="flip-card__input" placeholder="{{formMascota.foto}}" type="text" name="foto"
           [(ngModel)]="formMascota.foto">
-          <label for="id_edad">Edad ej. 1</label>
         <input id="id_edad" class="flip-card__input" placeholder="{{formMascota.edad}}" type="number" name="edad"
           [(ngModel)]="formMascota.edad">
-          <label for="id_peso">Peso: 3000</label>
         <input id="id_peso" class="flip-card__input" placeholder="{{formMascota.peso}}" type="number" name="peso"
           [(ngModel)]="formMascota.peso">
         </ng-container>
