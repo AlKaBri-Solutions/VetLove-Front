@@ -18,4 +18,16 @@ export class VeterinarioService {
   getVeterinarioByCedula(cedula: string){
     return this.http.get<Veterinario>('http://localhost:8090/veterinario/findCedula?cedula=' + cedula); 
   }
+
+  getAllVeterinarios() {
+    return this.http.get<Veterinario[]>('http://localhost:8090/veterinario/all');
+  }
+
+  saveVeterinario(veterinario: Veterinario) {
+    return this.http.post<Veterinario>('http://localhost:8090/veterinario/add', veterinario);
+  }
+
+  updateVeterinario(veterinario: Veterinario) {
+    return this.http.put<Veterinario>('http://localhost:8090/veterinario/update', veterinario);
+  }
 }

@@ -32,6 +32,7 @@ import { MisVeterinariosComponent } from './Admin/mis-veterinarios/mis-veterinar
 import { MedicamentosDataGridComponent } from './DevExpress/medicamentos-data-grid/medicamentos-data-grid.component';
 import { DevExtremeModule  } from 'devextreme-angular';
 import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/tratamientos-chart.component';
+import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 
 
 // register Swiper custom elements
@@ -61,6 +62,7 @@ register();
     MisVeterinariosComponent,
     MedicamentosDataGridComponent,
     TratamientosChartComponent,
+    FormularioVeterinarioComponent,
   ],
   imports: [
     BrowserModule,

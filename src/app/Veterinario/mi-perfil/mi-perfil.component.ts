@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Administrador } from 'src/app/models/Adminsitrador';
 import { Cliente } from 'src/app/models/Cliente';
 import { Veterinario } from 'src/app/models/Veterinario';
 import { ClienteService } from 'src/app/servicio/cliente.service';
@@ -29,14 +28,18 @@ export class MiPerfilComponent {
     cedula: '',
     veterinario: {
       idVeterinario: 0,
-      cedula: '',
-      nombre: '',
-      contrasenia: '',
-      fotoUrl: '',
-      especialidad: {
-        idEspecialidad: 0,
-        nombre: ''
-      }
+        cedula: '',
+        nombre: '',
+        contrasenia: '',
+        fotoUrl: '',
+        especialidad: {
+          idEspecialidad: 1,
+          nombre: 'General'
+        },
+        estado: {
+          idEstado: 1,
+          nombre: 'Activo'
+        }
     }
   }
 
