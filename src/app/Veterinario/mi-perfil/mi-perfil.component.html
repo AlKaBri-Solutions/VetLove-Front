@@ -59,4 +59,33 @@
     </section>
 </ng-container>
 
+<ng-container *ngIf = "tipoUsuario === 'admin'" >
+    <section class="seccion--perfil seccion" id="info-perfil">
+
+        <div class="lado-izq">
+            
+            <div class="card">
+                <h1 class="titulo-perfil">Perfil</h1>   
+                <div class="profileImage">
+                    <img src="../../../assets/images/profile-pic.jpg" class="foto-perfil">
+                </div>
+                <div class="textContainer">
+                  <p class="name"></p>
+                </div>
+              </div>
+        </div>
+    
+        <div class="lado-der">
+            <div class="flip-card__front">
+                <div class="title">Mis Datos Actuales</div>
+                <form id="form-login" class="flip-card__form" #form="ngForm" (ngSubmit)="actualizarCliente(cli)">
+                 <input id ="id_cedula" type="text" class="flip-card__input" value="123123234">
+                 <input id ="id_email" type="password" class="flip-card__input" value="password">
+                 <button class="flip-card__btn">Actualizar</button>
+                </form>
+            </div>
+            </div>
+    </section>
+</ng-container>
+
 <app-popup *ngIf="mostrarPopup" [mensaje]="mensajePopup" (cerrar)="cerrarPopup()"></app-popup>

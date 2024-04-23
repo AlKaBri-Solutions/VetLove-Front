@@ -11,6 +11,7 @@ import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-masco
 import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
+import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
 
 const routes: Routes = [
   {path: 'home', component: LandingPageComponent},
@@ -27,6 +28,10 @@ const routes: Routes = [
   {path: 'veterinario/add-cliente', component: FormularioClienteComponent},
   {path: 'veterinario/update-cliente', component: FormularioClienteComponent},
   {path: 'mascota/info-mascota', component: DetalleMascotaComponent},
+  {path: 'admin', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/dashboard', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/mis-veterinarios', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/mi-perfil', component: PaginaPrincipalAdminComponent},
 
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Administrador } from 'src/app/models/Adminsitrador';
 import { Cliente } from 'src/app/models/Cliente';
 import { Veterinario } from 'src/app/models/Veterinario';
 import { ClienteService } from 'src/app/servicio/cliente.service';
