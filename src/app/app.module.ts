@@ -30,6 +30,10 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
 import { MisVeterinariosComponent } from './Admin/mis-veterinarios/mis-veterinarios.component';
 import { MedicamentosDataGridComponent } from './DevExpress/medicamentos-data-grid/medicamentos-data-grid.component';
+import { DevExtremeModule  } from 'devextreme-angular';
+import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/tratamientos-chart.component';
+
+
 // register Swiper custom elements
 register();
 
@@ -55,7 +59,8 @@ register();
     DashboardComponent,
     PaginaPrincipalAdminComponent,
     MisVeterinariosComponent,
-    MedicamentosDataGridComponent
+    MedicamentosDataGridComponent,
+    TratamientosChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ register();
     FormsModule,
     CommonModule,
     RiveModule,
+    DevExtremeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
