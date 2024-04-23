@@ -14,6 +14,7 @@ export class DetalleMascotaComponent {
   petId1 = '';
   mascota!: Mascota;
   cliId1 = '';
+  
 
   constructor(
     private router: Router,
@@ -27,9 +28,8 @@ export class DetalleMascotaComponent {
     this.petId1 = this.router.url.split('id=')[1].split('&')[0];
         this.servicioMascota.getMascotaById(Number(this.petId1)).subscribe(mascota => {
           this.mascota = mascota
+          this.cliId1 = String(this.mascota.dueno.id)
           console.log(this.mascota)
         });
-
-    this.cliId1 = this.router.url.split('idCliente=')[1].split('&')[0];
   }
 }
