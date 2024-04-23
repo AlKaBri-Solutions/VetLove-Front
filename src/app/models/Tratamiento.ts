@@ -6,7 +6,7 @@ export interface Tratamiento {
     fechaInicio: Date;
     fechaFin: Date;
     costo: number;
-    medicamentoAplicado: boolean,
-    mascota: Mascota,
-    medicamento: Medicamento
+    medicamento: Medicamento;
+    mascota: Mascota;
+    medicamentoAplicado: boolean;
 }
