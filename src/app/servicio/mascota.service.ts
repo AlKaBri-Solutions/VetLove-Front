@@ -53,4 +53,8 @@ export class MascotaService {
     return this.http.delete<Mascota>('http://localhost:8090/mascota/undelete/' + id);
   }
 
+  countAll(): Observable<Number> {
+    return this.http.get<Number>('http://localhost:8090/mascota/countAll');
+  }
+
 }

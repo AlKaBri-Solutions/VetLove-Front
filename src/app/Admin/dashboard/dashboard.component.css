@@ -40,6 +40,7 @@ h1 {
     width: 40%;
     margin-left: 2.5%;
     flex-wrap: wrap;
+    margin-bottom: 5%;
   }
 
   .dashboard-mascotas-veterinarios{
@@ -47,6 +48,9 @@ h1 {
     background: #FFECD5;
     width: 100%;
     margin-bottom: 2.5%;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .contenedor-dos-fichas{
@@ -60,6 +64,9 @@ h1 {
     background: #FFECD5;
     width: 50%;
     margin-right: 2.5%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .dashboard-atenciones-realizadas{
@@ -67,6 +74,9 @@ h1 {
     background: #FFECD5;
     width: 50%;
     margin-left: 2.5%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .contenedor-medicamentos-data-grid{
@@ -79,4 +89,25 @@ h1 {
     margin-bottom: 5%;
   }
 
-  
+  .title-dashboard{
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .subtitle-dashboard{
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mascotas-trat{
+    display: flex;
+    border-radius: 75%;
+    border: 5px solid #000C4F;
+    font-size: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #000C4F;
+    font-weight: bold;
+  }

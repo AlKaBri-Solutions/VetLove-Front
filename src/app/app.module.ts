@@ -32,7 +32,11 @@ import { MisVeterinariosComponent } from './Admin/mis-veterinarios/mis-veterinar
 import { MedicamentosDataGridComponent } from './DevExpress/medicamentos-data-grid/medicamentos-data-grid.component';
 import { DevExtremeModule  } from 'devextreme-angular';
 import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/tratamientos-chart.component';
+
+import { DatePipe } from '@angular/common';
+
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
+
 
 
 // register Swiper custom elements
@@ -73,7 +77,7 @@ register();
     RiveModule,
     DevExtremeModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

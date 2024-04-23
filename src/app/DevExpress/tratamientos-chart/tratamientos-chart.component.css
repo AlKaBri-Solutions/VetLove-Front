@@ -21,3 +21,9 @@
     display: inline-block;
     vertical-align: middle;
   }
+
+  .box{
+    width: 50%;
+    margin-left: 25%;
+    border: 2px solid #FE761E;
+  }

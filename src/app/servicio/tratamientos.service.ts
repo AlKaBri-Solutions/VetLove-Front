@@ -12,4 +12,13 @@ export class TratamientosService {
   getAllTratamientos(): Observable<Tratamiento[]> {
     return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/all');
   }
+
+  countActivos(): Observable<Number> {
+    return this.http.get<Number>('http://localhost:8090/tratamiento/countActivos');
+  }
+
+  countRealizados(): Observable<Number> {
+    return this.http.get<Number>('http://localhost:8090/tratamiento/countRealizados');
+  }
+
 }
