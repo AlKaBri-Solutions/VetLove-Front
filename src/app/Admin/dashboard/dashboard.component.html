@@ -12,16 +12,22 @@
 
         <div class="contenedor-resto-datos">
             <div class="dashboard-mascotas-veterinarios">
-
+                <h3 class="title-dashboard">Ratio de Mascotas respecto a veterinarios</h3>
+                <h1>4 : 1</h1>
+                <h3 class="subtitle-dashboard">Mascotas Veterinarios</h3>
             </div>
 
             <div class="contenedor-dos-fichas">
                 <div class="dashboard-mascotas-tratamiento">
-
+                    <h3 class="title-dashboard">Mascotas en Tratamiento</h3>
+                    <div class="mascotas-trat">{{mascotasTrat}}</div>
+                    <h3 class="title-dashboard">A la fecha: <span class="usuario">{{currentDateTime}}</span></h3>
                 </div>
 
                 <div class="dashboard-atenciones-realizadas">
-
+                    <h3 class="title-dashboard">Tratamientos Finalizados</h3>
+                    <div class="mascotas-trat">{{atenReal}}</div>
+                    <h3 class="title-dashboard">A la fecha: <span class="usuario">{{currentDateTime}}</span></h3>
                 </div>
             </div>
 
@@ -30,7 +36,7 @@
     </div>
 
     <div class="contenedor-medicamentos-data-grid dx-viewport">
-        <app-medicamentos-data-grid></app-medicamentos-data-grid>
+        <!-- <app-medicamentos-data-grid></app-medicamentos-data-grid> -->
     </div>
 
 </section>
