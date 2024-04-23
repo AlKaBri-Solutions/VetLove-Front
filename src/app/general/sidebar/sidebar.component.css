@@ -1065,3 +1065,7 @@ padding-left: 3rem !important;
 .contenedor-lo-que-sea-cliente h3{
   margin-left: 47rem;
 }
+
+.admin{
+  position: fixed;
+}
