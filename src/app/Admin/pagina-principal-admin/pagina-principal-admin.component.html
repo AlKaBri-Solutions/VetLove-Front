@@ -1,0 +1,15 @@
+<ng-container *ngIf="ruta.includes('/admin')">
+    <app-sidebar  [tipoUsuario]="'admin'"></app-sidebar>
+</ng-container>
+
+<ng-container *ngIf="ruta == '/admin/dashboard' || ruta == '/admin'">
+    <app-dashboard></app-dashboard>
+</ng-container>
+
+<ng-container *ngIf="ruta == '/admin/mis-veterinarios'">
+    <app-mis-veterinarios></app-mis-veterinarios>
+</ng-container>
+
+<ng-container *ngIf="ruta == '/admin/mi-perfil' || ruta == '/admin'">
+    <app-mi-perfil [tipoUsuario]="'admin'"></app-mi-perfil>
+</ng-container>

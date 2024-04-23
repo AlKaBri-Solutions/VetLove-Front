@@ -26,6 +26,15 @@ import { LandingPageComponent } from './landing-page/landing-page/landing-page.c
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
+import { MisVeterinariosComponent } from './Admin/mis-veterinarios/mis-veterinarios.component';
+import { MedicamentosDataGridComponent } from './DevExpress/medicamentos-data-grid/medicamentos-data-grid.component';
+import { DevExtremeModule  } from 'devextreme-angular';
+import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/tratamientos-chart.component';
+import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
+
+
 // register Swiper custom elements
 register();
 
@@ -47,7 +56,13 @@ register();
     PopupComponent,
     AnimacionPersonaComponent,
     AnimacionPerroComponent,
-    DetalleMascotaComponent
+    DetalleMascotaComponent,
+    DashboardComponent,
+    PaginaPrincipalAdminComponent,
+    MisVeterinariosComponent,
+    MedicamentosDataGridComponent,
+    TratamientosChartComponent,
+    FormularioVeterinarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +71,7 @@ register();
     FormsModule,
     CommonModule,
     RiveModule,
+    DevExtremeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

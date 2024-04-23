@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.5/css/dx.material.blue.light.css" />
+</head>
+    <dx-chart
+      [dataSource]="medicamentos">
+      <dxi-series valueField="precio" name="Precio"></dxi-series>
+      <dxi-series valueField="costo" name="Costo"></dxi-series>
+      <dxo-common-series-settings
+        #seriesSettings
+        argumentField="nombre"
+        [type]="types[0]"
+      >
+      </dxo-common-series-settings>
+      <dxo-margin [bottom]="20"></dxo-margin>
+      <dxo-common-axis-settings>
+        <dxo-grid [visible]="true"></dxo-grid>
+      </dxo-common-axis-settings>
+      <dxo-legend verticalAlignment="top" horizontalAlignment="right">
+      </dxo-legend>
+      <dxo-argument-axis [allowDecimals]="false" [axisDivisionFactor]="60">
+        <dxo-label>
+          <dxo-format type="decimal"></dxo-format>
+        </dxo-label>
+      </dxo-argument-axis>
+    </dx-chart>
+    <div class="options">
+      <div class="caption">Cambiar Gráfica</div>
+      <div class="option">
+        <span>Tipo Gráfica:</span>
+        <dx-select-box
+          [dataSource]="types"
+          [(value)]="seriesSettings.type"
+        >
+        </dx-select-box>
+      </div>
+    </div>
+  

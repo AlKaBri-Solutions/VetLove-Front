@@ -33,8 +33,12 @@ export class FormularioClienteComponent {
       contrasenia: '',
       fotoUrl: '',
       especialidad: {
-        idEspecialidad: 0,
-        nombre: ''
+        idEspecialidad: 1,
+        nombre: 'General'
+      },
+      estado: {
+        idEstado: 1,
+        nombre: 'Activo'
       }
     }
   }
@@ -62,13 +66,13 @@ export class FormularioClienteComponent {
     if (this.router.url.split('?')[0] == '/veterinario/add-cliente') {
       this.servicioCliente.saveCliente(clienteForm, this.vetId1).subscribe(cliente => {
         this.addClienteEvent.emit(cliente);
-        this.router.navigate(['/veterinario/mis-clientes'], {queryParams: {id: this.vetId1}});
+        this.router.navigate(['/veterinario/mis-clientes'], { queryParams: { id: this.vetId1 } });
       })
     }
     else {
       this.servicioCliente.updateCliente(clienteForm, this.vetId1).subscribe(cliente => {
         this.addClienteEvent.emit(cliente);
-        this.router.navigate(['/veterinario/mis-clientes'], {queryParams: {id: this.vetId1}});
+        this.router.navigate(['/veterinario/mis-clientes'], { queryParams: { id: this.vetId1 } });
       })
     }
   }

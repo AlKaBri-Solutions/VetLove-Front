@@ -46,8 +46,12 @@ export class FormularioMascotaComponent {
         contrasenia: '',
         fotoUrl: '',
         especialidad: {
-          idEspecialidad: 0,
-          nombre: ''
+          idEspecialidad: 1,
+          nombre: 'General'
+        },
+        estado: {
+          idEstado: 1,
+          nombre: 'Activo'
         }
       }
     }
@@ -78,12 +82,12 @@ export class FormularioMascotaComponent {
       this.servicioCliente.getClienteByCedula(mascotaForm.dueno.cedula).subscribe(cliente => {
         if (cliente == null) {
           alert('El dueño no existe');
-          this.router.navigate(['/veterinario/add-mascota'], {queryParams: {id: this.vetId1}});
+          this.router.navigate(['/veterinario/add-mascota'], { queryParams: { id: this.vetId1 } });
         }
         else {
           this.servicioMascota.saveMascota(mascotaForm).subscribe(mascota => {
             this.addMascotaEvent.emit(mascota);
-            this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+            this.router.navigate(['/veterinario/mis-mascotas'], { queryParams: { id: this.vetId1 } });
           })
         }
       })
@@ -91,7 +95,7 @@ export class FormularioMascotaComponent {
     else {
       this.servicioMascota.updateMascota(mascotaForm).subscribe(mascota => {
         this.addMascotaEvent.emit(mascota);
-        this.router.navigate(['/veterinario/mis-mascotas'], {queryParams: {id: this.vetId1}});
+        this.router.navigate(['/veterinario/mis-mascotas'], { queryParams: { id: this.vetId1 } });
       })
     }
   }

@@ -28,14 +28,18 @@ export class MiPerfilComponent {
     cedula: '',
     veterinario: {
       idVeterinario: 0,
-      cedula: '',
-      nombre: '',
-      contrasenia: '',
-      fotoUrl: '',
-      especialidad: {
-        idEspecialidad: 0,
-        nombre: ''
-      }
+        cedula: '',
+        nombre: '',
+        contrasenia: '',
+        fotoUrl: '',
+        especialidad: {
+          idEspecialidad: 1,
+          nombre: 'General'
+        },
+        estado: {
+          idEstado: 1,
+          nombre: 'Activo'
+        }
     }
   }
 

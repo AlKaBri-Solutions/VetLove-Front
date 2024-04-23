@@ -1,0 +1,40 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.5/css/dx.material.blue.light.css" />
+</head>
+<div id="chart-demo">
+    <dx-chart
+      [dataSource]="tratamientos">
+      <dxi-series valueField="costo" name="Costo"></dxi-series>
+      <dxo-common-series-settings
+        #seriesSettings
+        argumentField="fechaFin"
+        [type]="types[0]"
+      >
+      </dxo-common-series-settings>
+      <dxo-margin [bottom]="20"></dxo-margin>
+      <dxo-common-axis-settings>
+        <dxo-grid [visible]="true"></dxo-grid>
+      </dxo-common-axis-settings>
+      <dxo-legend verticalAlignment="top" horizontalAlignment="right">
+      </dxo-legend>
+      <dxo-argument-axis [allowDecimals]="false" [axisDivisionFactor]="60">
+        <dxo-label>
+          <dxo-format type="decimal"></dxo-format>
+        </dxo-label>
+      </dxo-argument-axis>
+      <dxo-tooltip [enabled]="true"></dxo-tooltip>
+    </dx-chart>
+    <div class="options">
+      <div class="caption">Options</div>
+      <div class="option">
+        <span>Series Type</span>
+        <dx-select-box
+          [dataSource]="types"
+          [(value)]="seriesSettings.type"
+          [inputAttr]="{ 'aria-label': 'Series Type' }"
+        >
+        </dx-select-box>
+      </div>
+    </div>
+  </div>
+  

@@ -1,4 +1,5 @@
 import { Especialidad } from "./Especialidad";
+import { EstadoVet } from "./EstadoVet";
 
 export interface Veterinario {
     idVeterinario: number;
@@ -6,5 +7,6 @@ export interface Veterinario {
     nombre: string;
     contrasenia: string;
     fotoUrl: string;
-    especialidad: Especialidad
+    especialidad: Especialidad;
+    estado: EstadoVet;
 }

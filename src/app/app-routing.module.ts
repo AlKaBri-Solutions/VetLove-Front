@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { RiveModule } from 'ng-rive';
+import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
 import { FormularioClienteComponent } from './Formularios/formulario-cliente/formulario-cliente.component';
 import { FormularioMascotaComponent } from './Formularios/formulario-mascota/formulario-mascota.component';
+import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
 import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
@@ -27,6 +29,12 @@ const routes: Routes = [
   {path: 'veterinario/add-cliente', component: FormularioClienteComponent},
   {path: 'veterinario/update-cliente', component: FormularioClienteComponent},
   {path: 'mascota/info-mascota', component: DetalleMascotaComponent},
+  {path: 'admin', redirectTo: "admin/dashboard", pathMatch: 'full'},
+  {path: 'admin/dashboard', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/mis-veterinarios', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/mi-perfil', component: PaginaPrincipalAdminComponent},
+  {path: 'admin/add-veterinario', component: FormularioVeterinarioComponent},
+  {path: 'admin/update-veterinario', component: FormularioVeterinarioComponent},
 
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},
