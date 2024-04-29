@@ -1,3 +1,5 @@
+import { Enfermedad } from "./Enfermedad";
+
 export interface Medicamento {
     idMedicamento: number;
     nombre: string;
@@ -5,4 +7,5 @@ export interface Medicamento {
     precio: number;
     unidades: number;
     vendidas: number;
+    enfermedad: Enfermedad;
 }
