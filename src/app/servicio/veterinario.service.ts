@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Veterinario } from '../models/Veterinario';
 import { Observable } from 'rxjs';
+import { Veterinario } from '../models/Veterinario';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,21 @@ export class VeterinarioService {
     return this.http.get<Veterinario>('http://localhost:8090/veterinario/findCedula?cedula=' + cedula); 
   }
 
+
   countAll(): Observable<Number> {
     return this.http.get<Number>('http://localhost:8090/veterinario/countAll');
+  }
+
+  getAllVeterinarios() {
+    return this.http.get<Veterinario[]>('http://localhost:8090/veterinario/all');
+  }
+
+  saveVeterinario(veterinario: Veterinario) {
+    return this.http.post<Veterinario>('http://localhost:8090/veterinario/add', veterinario);
+  }
+
+  updateVeterinario(veterinario: Veterinario) {
+    return this.http.put<Veterinario>('http://localhost:8090/veterinario/update', veterinario);
+
   }
 }

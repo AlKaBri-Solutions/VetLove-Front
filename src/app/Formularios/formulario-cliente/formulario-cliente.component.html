@@ -30,7 +30,13 @@
 
     <div class="lado-der">
         <div class="flip-card__front">
-            <div class="title">Registrar Cliente</div>
+            <ng-container *ngIf="!esActualizar">
+                <div class="title">Registrar Cliente</div>
+            </ng-container>
+
+            <ng-container *ngIf="esActualizar">
+                <div class="title">Actualizar Cliente</div>
+            </ng-container>
 
             <form id="form-login" class="flip-card__form">
                 <ng-container *ngIf="!esActualizar">

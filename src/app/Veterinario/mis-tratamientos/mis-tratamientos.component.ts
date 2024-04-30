@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Tratamiento } from 'src/app/models/Tratamiento';
+import { ClienteService } from 'src/app/servicio/cliente.service';
+import { MascotaService } from 'src/app/servicio/mascota.service';
+import { TratamientosService } from 'src/app/servicio/tratamientos.service';
+import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
   selector: 'app-mis-tratamientos',
@@ -6,5 +12,65 @@ import { Component } from '@angular/core';
   styleUrls: ['./mis-tratamientos.component.css']
 })
 export class MisTratamientosComponent {
+  tratamientoList!: Tratamiento[];
+  vetId1 = '';
+  vet!: any;
+  traId1 = '';
+  tra!: any;
+  filtro: string = '';
+  @Input()
+  tipoUsuario: string = '';
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private servicioMascota: MascotaService,
+    private servicioVeterinario: VeterinarioService,
+    private servicioCliente: ClienteService,
+    private servicioTratamiento: TratamientosService
+  ) {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
+      this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1)).subscribe(tratamientos => {
+        this.tratamientoList = tratamientos;
+      });
+      this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
+        this.vet = veterinario
+      });
+    });
+  }
+  aplicarFiltro() {
+    return this.tratamientoList.filter(tratamiento =>
+      tratamiento.mascota.nombre.toString().toLowerCase().includes(this.filtro.toLowerCase()) ||
+      tratamiento.medicamento.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+    );
+  }
+
+  aplicarMedicamento(tratamiento: Tratamiento) {
+    // this.servicioTratamiento.aplicarMedicamento(tratamiento.idTratamiento, tratamiento).subscribe(
+    //   (response) => {
+    //     // Manejar la respuesta del backend, por ejemplo, mostrar un mensaje de éxito
+    //     console.log('Medicamento aplicado correctamente');
+    //   },
+    //   (error) => {
+    //     // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario
+    //     console.error('Error al aplicar el medicamento:', error);
+    //   }
+    // );
+  }
+
+  cambiarMedicamento(tratamiento: Tratamiento) {
+    // this.servicioTratamiento.cambiarMedicamento(tratamiento).subscribe(
+    //   (response) => {
+    //     // Manejar la respuesta del backend, por ejemplo, mostrar un mensaje de éxito
+    //     console.log('Medicamento cambiado correctamente');
+    //   },
+    //   (error) => {
+    //     // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario
+    //     console.error('Error al cambiar el medicamento:', error);
+    //   }
+    // );
+  }
+ 
 }
