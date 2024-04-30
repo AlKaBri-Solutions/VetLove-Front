@@ -25,4 +25,8 @@ export class TratamientosService {
     return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/findMascota?id=' + id);
   }
 
+  getTratamientosByVeterinarioId(id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/findVeterinario?id=' + id);
+  }
+
 }
