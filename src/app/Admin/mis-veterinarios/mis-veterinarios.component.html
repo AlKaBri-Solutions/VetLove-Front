@@ -35,6 +35,7 @@
                     <th class="row-0-h">Foto</th>
                     <th class="row-1-h">Cédula</th>
                     <th class="row-2-h">Nombre</th>
+                    <th class="row-2_5-h">Estado</th>
                     <th class="row-3-h">Especialidad</th>
                     <th class="row-4-h">Editar</th>
                 </tr>
@@ -52,6 +53,7 @@
                             </td>
                             <td class="row-1-v">{{veterinario.cedula}}</td>
                             <td class="row-2-v">{{veterinario.nombre}}</td>
+                            <td class="row-2_5-v">{{veterinario.estado.nombre}}</td>
                             <td class="row-3-v">{{veterinario.especialidad.nombre}}</td>
                             <td class="row-4-v">
                                 <a href="/admin/update-veterinario?id={{veterinario.idVeterinario}}">

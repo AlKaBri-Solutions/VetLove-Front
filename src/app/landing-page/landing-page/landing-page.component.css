@@ -1,3 +1,5 @@
+
+
 /*----------Estilos generales----------*/
 html{
     height: 100%;
@@ -612,13 +614,17 @@ footer a{
 
  
 
-  .swiper-pagination .swiper-pagination-bullet {
-    background-color: #FE761E;
+  .swiper-pagination::after{
+    color: #FE761E;
   }
 
   
   .swiper-button-prev::after, .swiper-button-next::after {
     color: #FE761E;
+  }
+
+  .swiper-pagination-bullet-active  {
+    background:#FE761E;
   }
 
   .swiper-button-prev {

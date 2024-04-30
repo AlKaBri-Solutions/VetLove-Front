@@ -2,9 +2,17 @@
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.5/css/dx.material.blue.light.css" />
 </head>
     <dx-chart
-      [dataSource]="medicamentos">
-      <dxi-series valueField="precio" name="Precio"></dxi-series>
-      <dxi-series valueField="costo" name="Costo"></dxi-series>
+      [dataSource]="medicamentos"
+      [size]="{
+        width: 1200,
+        height: 600
+        }">
+      <dxi-series valueField="precio" name="Precio">
+        <dxo-point [visible]="false"></dxo-point>
+      </dxi-series>
+      <dxi-series valueField="costo" name="Costo">
+        <dxo-point [visible]="false"></dxo-point>
+      </dxi-series>
       <dxo-common-series-settings
         #seriesSettings
         argumentField="nombre"

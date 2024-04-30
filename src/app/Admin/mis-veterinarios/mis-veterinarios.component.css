@@ -419,39 +419,38 @@ h3{
 
 
 .row-0-h {
-
   width: 15%;
   overflow-x: auto;
 }
 
 .row-1-h{
-  
-  width: 20%;
+  width: 16%;
   overflow-x: auto;
   text-align: left;
 }
 
 .row-2-h{
-  padding-left: 25px !important;
-  width: 17.5%;
+  width: 20%;
+  overflow-x: auto;
+}
+
+.row-2_5-h{
+  width: 15%;
   overflow-x: auto;
 }
 
 .row-3-h{
-  padding-left: 25px !important;
-  width: 12.5%;
+  width: 18.5%;
   overflow-x: auto;
 }
 
 .row-4-h{
-  
   width: 12.5%;
   overflow-x: auto;
 }
 
 .row-5-h{
   width: 12.5%;
- 
 }
 
 .row-6-h{
@@ -466,8 +465,8 @@ h3{
 }
 
 .row-1-v{
-  min-width: 25vh;
-  max-width: 25vh;
+  min-width: 16vh;
+  max-width: 16vh;
   overflow-x: auto;
   text-align: left;
 }
@@ -475,6 +474,12 @@ h3{
 .row-2-v{
   min-width: 20vh;
   max-width: 20vh;
+  overflow-x: auto;
+}
+
+.row-2_5-v{
+  min-width: 17vh;
+  max-width: 17vh;
   overflow-x: auto;
 }
 
@@ -1004,3 +1009,4 @@ h3{
 .setting-btn:hover .bar2::before {
   transform: translateX(-4px);
 }
+

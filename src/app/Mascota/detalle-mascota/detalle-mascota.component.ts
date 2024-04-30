@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/models/Mascota';
+import { Tratamiento } from 'src/app/models/Tratamiento';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { MascotaService } from 'src/app/servicio/mascota.service';
+import { TratamientosService } from 'src/app/servicio/tratamientos.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
@@ -14,6 +16,8 @@ export class DetalleMascotaComponent {
   petId1 = '';
   mascota!: Mascota;
   cliId1 = '';
+  tratamientoList!: Tratamiento[];
+  tratamiento!: Tratamiento;
   
 
   constructor(
@@ -21,7 +25,8 @@ export class DetalleMascotaComponent {
     private route: ActivatedRoute,
     private servicioVeterinario: VeterinarioService,
     private servicioCliente: ClienteService,
-    private servicioMascota: MascotaService
+    private servicioMascota: MascotaService,
+    private servicioTratamiento: TratamientosService,
   ) { }
   
   ngOnInit(): void {
@@ -31,5 +36,9 @@ export class DetalleMascotaComponent {
           this.cliId1 = String(this.mascota.dueno.id)
           console.log(this.mascota)
         });
+        this.servicioTratamiento.getTratamientosByMascotaId(Number(this.petId1)).subscribe(tratData => {
+          this.tratamientoList = tratData;
+          this.tratamiento = this.tratamientoList[0];
+        })
   }
 }

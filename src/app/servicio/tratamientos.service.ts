@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tratamiento } from '../models/Tratamiento';
 import { Observable } from 'rxjs';
+import { Tratamiento } from '../models/Tratamiento';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,22 @@ export class TratamientosService {
 
   countRealizados(): Observable<Number> {
     return this.http.get<Number>('http://localhost:8090/tratamiento/countRealizados');
+  }
+
+  getTratamientosByMascotaId(id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/findMascota?id=' + id);
+  }
+
+  getTratamientosByVeterinarioId(id: number): Observable<Tratamiento[]> {
+    return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/findVeterinario?id=' + id);
+  }
+
+  aplicarMedicamento(tratamiento: Tratamiento) {
+    return this.http.post<number>('http://localhost:8090/medicamento/aplicarMedicamento', tratamiento)
+  }
+
+  cambiarMedicamento(tratamiento: Tratamiento){
+    return this.http.post<number>('http://localhost:8090/tratamiento/cambiarMedicamento', tratamiento)
   }
 
 }

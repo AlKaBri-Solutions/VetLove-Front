@@ -15,18 +15,18 @@ h1 {
 
 #left {
     width: 55%;
-    height: 70vh;
+    height: 70vh !important;
     padding-left: 0%;
 }
 
 #right {
     width: 45%;
-    height: 70vh;
+    height: 70vh !important;
     display: flex;
     flex-direction: column;
     
     align-content: center;
-    padding: 1% 3% 1% 3%;
+    padding: 1% 3% 0% 3%;
 }
 
 #top {
@@ -132,6 +132,7 @@ h1 {
 
 #tabla-tratamiento-up{
     min-width: 500px;
+    height: 20vh !important;
 }
 
 #tabla-tratamiento-up th{
@@ -149,7 +150,7 @@ h1 {
 
 #tabla-tratamiento-down{
     min-width: 500px;
-    min-height: 20%;
+    height: 50vh;
 }
 
 #tabla-tratamiento-down td{

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Especialidad } from 'src/app/models/Especialidad';
 import { EstadoVet } from 'src/app/models/EstadoVet';
 import { Veterinario } from 'src/app/models/Veterinario';
+import { EspecialidadService } from 'src/app/servicio/especialidad.service';
+import { EstadoVetService } from 'src/app/servicio/estado-vet.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
 @Component({
@@ -18,7 +20,8 @@ export class FormularioVeterinarioComponent {
     private servicioVeterinario: VeterinarioService,
     private router: Router,
     private route: ActivatedRoute,
-
+    private servicioEspecialidad: EspecialidadService,
+    private servicioEstadoVet: EstadoVetService,
   ) {}
 
   sendVeterinario!: Veterinario;
@@ -40,47 +43,20 @@ export class FormularioVeterinarioComponent {
 
   esActualizar: boolean = false;
 
-  estados: EstadoVet[] = [
-    {
-      idEstado: 1,
-      nombre: 'Activo'
-    },
-    {
-      idEstado: 2,
-      nombre: 'Inactivo'
-    },
-    {
-      idEstado: 3,
-      nombre: 'Vacaciones'
-    }
-  ];
-  especialidades: Especialidad[] = [
-    {
-      idEspecialidad: 1,
-      nombre: 'General'
-    },
-    {
-      idEspecialidad: 2,
-      nombre: 'Cardiologia'
-    },
-    {
-      idEspecialidad: 3,
-      nombre: 'Dermatologia'
-    },
-    {
-      idEspecialidad: 4,
-      nombre: 'Gastroenterologia'
-    },
-    {
-      idEspecialidad: 5,
-      nombre: 'Ortopedia'
-    },
-  ];
+  estados!: EstadoVet[];
+  especialidades!: Especialidad[];
 
   ngOnInit(): void {
+    this.servicioEspecialidad.getAllEspecialidades().subscribe(especialidades => {
+      this.especialidades = especialidades
+    })
+    this.servicioEstadoVet.getAllEstadosVet().subscribe(estados => {
+      this.estados = estados
+    })
     this.route.paramMap.subscribe(params => {
       if (this.router.url.split('?')[0] == '/admin/add-veterinario') {
         this.esActualizar = false;
+        
       }
       else {
         this.esActualizar = true;
