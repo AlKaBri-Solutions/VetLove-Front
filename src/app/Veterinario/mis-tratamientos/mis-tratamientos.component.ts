@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap } from 'rxjs';
 import { Tratamiento } from 'src/app/models/Tratamiento';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { MascotaService } from 'src/app/servicio/mascota.service';
@@ -48,29 +49,24 @@ export class MisTratamientosComponent {
   }
 
   aplicarMedicamento(tratamiento: Tratamiento) {
-    // this.servicioTratamiento.aplicarMedicamento(tratamiento.idTratamiento, tratamiento).subscribe(
-    //   (response) => {
-    //     // Manejar la respuesta del backend, por ejemplo, mostrar un mensaje de éxito
-    //     console.log('Medicamento aplicado correctamente');
-    //   },
-    //   (error) => {
-    //     // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario
-    //     console.error('Error al aplicar el medicamento:', error);
-    //   }
-    // );
+    
+    this.servicioTratamiento.aplicarMedicamento(tratamiento).pipe(
+      mergeMap(() => {
+        return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+      }),
+      map((tratamientos: any) => {
+        this.tratamientoList = tratamientos
+
+      })
+    ).subscribe()
   }
 
   cambiarMedicamento(tratamiento: Tratamiento) {
-    // this.servicioTratamiento.cambiarMedicamento(tratamiento).subscribe(
-    //   (response) => {
-    //     // Manejar la respuesta del backend, por ejemplo, mostrar un mensaje de éxito
-    //     console.log('Medicamento cambiado correctamente');
-    //   },
-    //   (error) => {
-    //     // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario
-    //     console.error('Error al cambiar el medicamento:', error);
-    //   }
-    // );
+    this.servicioTratamiento.cambiarMedicamento(tratamiento).subscribe(
+      
+    )
+    this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1)).subscribe(tratamientos => {
+      this.tratamientoList = tratamientos;
+    });
   }
- 
 }

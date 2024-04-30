@@ -29,4 +29,12 @@ export class TratamientosService {
     return this.http.get<Tratamiento[]>('http://localhost:8090/tratamiento/findVeterinario?id=' + id);
   }
 
+  aplicarMedicamento(tratamiento: Tratamiento) {
+    return this.http.post<number>('http://localhost:8090/medicamento/aplicarMedicamento', tratamiento)
+  }
+
+  cambiarMedicamento(tratamiento: Tratamiento){
+    return this.http.post<number>('http://localhost:8090/tratamiento/cambiarMedicamento', tratamiento)
+  }
+
 }
