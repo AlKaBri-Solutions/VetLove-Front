@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Administrador } from 'src/app/models/Adminsitrador';
 import { Cliente } from 'src/app/models/Cliente';
 import { Veterinario } from 'src/app/models/Veterinario';
+import { AdministradorService } from 'src/app/servicio/administrador.service';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
 
@@ -14,7 +16,8 @@ export class MiPerfilComponent {
   vetId1 = '';
   veterinario!: Veterinario;
   clienteId1 = '';
-  cli!:Cliente
+  cli!:Cliente;
+  admin!:Administrador;
   souruce = "https://cdn.nubika.es/wp-content/uploads/2022/07/funciones-veterinarios.jpg";
   @Input() 
   tipoUsuario: string = "";
@@ -48,7 +51,8 @@ export class MiPerfilComponent {
     private router: Router,
     private route: ActivatedRoute,
     private servicioVeterinario: VeterinarioService,
-    private servicioCliente: ClienteService
+    private servicioCliente: ClienteService,
+    private servicioAdmin: AdministradorService,
   ) { }
 
   ngOnInit(): void {
@@ -63,7 +67,14 @@ export class MiPerfilComponent {
         this.clienteId1 = this.router.url.split('id=')[1].split('&')[0];
         this.servicioCliente.getClienteById(Number(this.clienteId1)).subscribe(cli => {
           this.cli = cli
+          console.log(this.cli)
         });
+      } else if(this.tipoUsuario === 'admin'){
+        console.log("Entra a admin")
+        this.servicioAdmin.getAdministrador().subscribe(admin => {
+          this.admin = admin
+          console.log(this.admin)
+        })
       }
     });
   }
@@ -84,6 +95,11 @@ export class MiPerfilComponent {
 
   cerrarPopup() {
     this.mostrarPopup = false;
+  }
+
+  actualizarAdmin(admin: Administrador){
+    this.servicioAdmin.updateAdministrador(admin).subscribe()
+    this.abrirPopup("Tu información ha sido actualizada con exito");
   }
 
 }

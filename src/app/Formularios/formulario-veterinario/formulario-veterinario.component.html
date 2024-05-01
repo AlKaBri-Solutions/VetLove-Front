@@ -60,13 +60,26 @@
           <input id="id_imagen" class="flip-card__input" placeholder="{{formVeterinario.fotoUrl}}" type="text"
             name="foto" [(ngModel)]="formVeterinario.fotoUrl">
 
-          <select class="form-select" id="estado" name="estado" [(ngModel)]="formVeterinario.estado">
-            <option class="form-option" *ngFor="let estado of estados" [ngValue]="estado">{{estado.nombre}}</option>
-          </select>
+          <div class="tooltip-container">
+            <select class="form-select" id="estado" name="estado" [(ngModel)]="formVeterinario.estado">
+              <option class="form-option" *ngFor="let estado of estados" [ngValue]="estado">{{estado.nombre}}</option>
+            </select>
+            <span class="tooltip">Actual: {{formVeterinario.estado.nombre}}</span>
 
-          <select class="form-select" id="especialidad" name="especialidad" [(ngModel)]="formVeterinario.especialidad">
-              <option class="form-option" *ngFor = "let especialidad of especialidades" [ngValue] ="especialidad" name="especialidad">{{especialidad.nombre}}</option>
-          </select>
+          </div>
+
+          <div class="tooltip-container">
+
+            <select class="form-select" id="especialidad" name="especialidad"
+              [(ngModel)]="formVeterinario.especialidad">
+              <option class="form-option" *ngFor="let especialidad of especialidades" [ngValue]="especialidad"
+                name="especialidad">{{especialidad.nombre}}</option>
+            </select>
+            <span class="tooltip">Actual: {{formVeterinario.especialidad.nombre}}</span>
+
+          </div>
+
+
 
 
         </ng-container>
