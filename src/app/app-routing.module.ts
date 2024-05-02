@@ -7,6 +7,7 @@ import { RiveModule } from 'ng-rive';
 import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
 import { FormularioClienteComponent } from './Formularios/formulario-cliente/formulario-cliente.component';
 import { FormularioMascotaComponent } from './Formularios/formulario-mascota/formulario-mascota.component';
+import { FormularioTratamientoComponent } from './Formularios/formulario-tratamiento/formulario-tratamiento.component';
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
 import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'admin/mi-perfil', component: PaginaPrincipalAdminComponent},
   {path: 'admin/add-veterinario', component: FormularioVeterinarioComponent},
   {path: 'admin/update-veterinario', component: FormularioVeterinarioComponent},
+  {path: 'tratamiento/add-tratamiento', component: FormularioTratamientoComponent},
 
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},

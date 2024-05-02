@@ -36,6 +36,7 @@ import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/trat
 import { DatePipe } from '@angular/common';
 
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
+import { FormularioTratamientoComponent } from './Formularios/formulario-tratamiento/formulario-tratamiento.component';
 
 
 
@@ -67,6 +68,7 @@ register();
     MedicamentosDataGridComponent,
     TratamientosChartComponent,
     FormularioVeterinarioComponent,
+    FormularioTratamientoComponent,
   ],
   imports: [
     BrowserModule,

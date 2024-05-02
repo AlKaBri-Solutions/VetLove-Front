@@ -352,21 +352,3 @@ section {
     pointer-events: auto;
   }
   
-    
-  .form-select .tooltip-container{
-    width: 250px;
-    height: 40px;
-    border-radius: 30px;
-    border: 2px solid #000C4F;
-    background-color: #FFF7ED;
-    box-shadow: 2.5px 2.5px #000C4F;
-    font-size: 15px;
-    font-weight: 600;
-    color: #000C4F;
-    padding: 5px 10px;
-    outline: none;
-  }
-
-  .form-option:hover{
-    background-color: #FE761E;
-  }
