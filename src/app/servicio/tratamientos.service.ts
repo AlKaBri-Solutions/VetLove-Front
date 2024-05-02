@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Tratamiento } from '../models/Tratamiento';
+import { TratamientoRequest } from '../models/TratamientoRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,11 @@ export class TratamientosService {
   }
 
   cambiarMedicamento(tratamiento: Tratamiento){
-    return this.http.post<number>('http://localhost:8090/tratamiento/cambiarMedicamento', tratamiento)
+    return this.http.post<number>('http://localhost:8090/medicamento/cambiarMedicamento', tratamiento)
+  }
+
+  saveTratamiento(tratamiento: TratamientoRequest) {
+    return this.http.post<number>('http://localhost:8090/tratamiento/add', tratamiento)
   }
 
 }

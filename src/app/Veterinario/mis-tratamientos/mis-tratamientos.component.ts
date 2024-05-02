@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, mergeMap } from 'rxjs';
+import { EMPTY, map, mergeMap } from 'rxjs';
 import { Tratamiento } from 'src/app/models/Tratamiento';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { MascotaService } from 'src/app/servicio/mascota.service';
@@ -21,6 +21,9 @@ export class MisTratamientosComponent {
   filtro: string = '';
   @Input()
   tipoUsuario: string = '';
+
+  mostrarPopup = false;
+  mensajePopup: string = "";
 
   constructor(
     private router: Router,
@@ -48,11 +51,26 @@ export class MisTratamientosComponent {
     );
   }
 
+  abrirPopup(mensaje: string) {
+    this.mensajePopup = mensaje;
+    this.mostrarPopup = true;
+  }
+
+  cerrarPopup() {
+    this.mostrarPopup = false;
+  }
+
   aplicarMedicamento(tratamiento: Tratamiento) {
     
     this.servicioTratamiento.aplicarMedicamento(tratamiento).pipe(
-      mergeMap(() => {
-        return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+      mergeMap((result) => {
+        if (result < 0) {
+          this.abrirPopup("Unidades insuficientes. Cambie el medicamento y vuelva a intentar");
+          return EMPTY
+        }
+        else {
+          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+        }
       }),
       map((tratamientos: any) => {
         this.tratamientoList = tratamientos
@@ -62,11 +80,20 @@ export class MisTratamientosComponent {
   }
 
   cambiarMedicamento(tratamiento: Tratamiento) {
-    this.servicioTratamiento.cambiarMedicamento(tratamiento).subscribe(
-      
-    )
-    this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1)).subscribe(tratamientos => {
-      this.tratamientoList = tratamientos;
-    });
+    this.servicioTratamiento.cambiarMedicamento(tratamiento).pipe(
+      mergeMap((result) => {
+        if (result < 0) {
+          this.abrirPopup("No hay medicamentos para la enfermedad a tratar. Comuníquese con el adminsitrador");
+          return EMPTY
+        }
+        else {
+          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+        }
+      }),
+      map((tratamientos: any) => {
+        this.tratamientoList = tratamientos
+
+      })
+    ).subscribe()
   }
 }
