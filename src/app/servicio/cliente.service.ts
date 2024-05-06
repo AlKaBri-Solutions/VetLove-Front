@@ -41,4 +41,8 @@ export class ClienteService {
     console.log(params)
     return this.http.put<Cliente>('http://localhost:8090/cliente/update', params);
   }
+
+  deleteCliente(id: number){
+    return this.http.delete<Cliente>('http://localhost:8090/cliente/delete?id=' + id);
+  }
 }

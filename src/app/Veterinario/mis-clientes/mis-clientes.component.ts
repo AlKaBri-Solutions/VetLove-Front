@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap } from 'rxjs';
 import { Cliente } from 'src/app/models/Cliente';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
@@ -15,6 +16,9 @@ export class MisClientesComponent {
   url:string = "";
   vet!:any;
   filtro: string = '';
+
+  mostrarPopup = false;
+  mensajePopup: string = "";
 
   constructor(
     private router: Router,
@@ -42,5 +46,31 @@ export class MisClientesComponent {
       cliente.correo.toLowerCase().includes(this.filtro.toLowerCase()) ||
       cliente.celular.toLowerCase().includes(this.filtro.toLowerCase())
     );
+  }
+
+  confirmarEliminacion(id: number) {
+    if(confirm('¿Esta seguro de eliminar este cliente?')){
+      this.servicioCliente.deleteCliente(id).pipe(
+        mergeMap(() => {
+          return this.servicioCliente.getClientesByVeterinarioId(Number(this.vetId1));
+        }),
+        map((clientes: any) => {
+          return this.clientList = clientes
+        })
+      ).subscribe()
+    }
+    else {
+
+    }
+  }
+
+  
+  abrirPopup(mensaje: string) {
+    this.mensajePopup = mensaje;
+    this.mostrarPopup = true;
+  }
+
+  cerrarPopup() {
+    this.mostrarPopup = false;
   }
 }
