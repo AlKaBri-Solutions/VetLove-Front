@@ -10,6 +10,7 @@ import { FormularioMascotaComponent } from './Formularios/formulario-mascota/for
 import { FormularioTratamientoComponent } from './Formularios/formulario-tratamiento/formulario-tratamiento.component';
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 import { PaginaPrincipalLoginComponent } from './Login/pagina-principal-login/pagina-principal-login.component';
+import { UbicacionFisicaComponent } from './Maps/ubicacion-fisica/ubicacion-fisica.component';
 import { DetalleMascotaComponent } from './Mascota/detalle-mascota/detalle-mascota.component';
 import { PaginaPrincipalVeterinarioComponent } from './Veterinario/pagina-principal-veterinario/pagina-principal-veterinario.component';
 import { ErrorDefaultComponent } from './general/error-default/error-default.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'admin/add-veterinario', component: FormularioVeterinarioComponent},
   {path: 'admin/update-veterinario', component: FormularioVeterinarioComponent},
   {path: 'tratamiento/add-tratamiento', component: FormularioTratamientoComponent},
+  {path: 'ubicacion', component: UbicacionFisicaComponent},
 
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},

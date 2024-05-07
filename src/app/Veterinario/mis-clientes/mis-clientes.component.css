@@ -379,15 +379,15 @@ h3 {
 
 .row-0 {
   left: 0 !important;
-  min-width: 9vw;
-  max-width: 9vw;
+  min-width: 12vw;
+  max-width: 12vw;
   overflow-x: auto;
 }
 
 .row-1 {
   left: 0 !important;
-  min-width: 15vw;
-  max-width: 15vw;
+  min-width: 12vw;
+  max-width: 12vw;
   overflow-x: auto;
   text-align: left;
 }
@@ -411,36 +411,43 @@ h3 {
   overflow-x: auto;
 }
 
+.row-5{
+  min-width: 8vw !important;
+  max-width: 8vw !important;
+  overflow-x: auto;
+}
+
 
 .row-0-h {
-  padding-left: 3rem !important;
-  width: 12.5% !important;
+  padding-left: 1rem !important;
+  width: 16% !important;
   
 }
 
 .row-1-h {
 
-  width: 22.5% !important;
-  
+  width: 15% !important;
   text-align: left;
 }
 
 .row-2-h {
-
-  width: 30% !important;
+  width: 29% !important;
   
 }
 
 .row-3-h {
-
-  width: 20% !important;
+  width: 17.5% !important;
   
 }
 
 .row-4-h {
-
-  width: 12.5% !important;
+  width: 10% !important;
   
+}
+
+.row-5-h{
+  /* padding-right: 3rem; */
+  width: 12% !important;
 }
 
 
@@ -785,4 +792,50 @@ button:hover {
 
 .contenedor-lo-que-sea-cliente h3 {
   margin-left: 47rem;
+}
+
+.btn-delete {
+  width: 55px;
+  height: 55px;
+  border-radius: 20px;
+  background-color: #ffecd5;
+  border: 3px solid #000C4F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  gap: 2px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: #FE761E;
+}
+
+.btn-delete:hover {
+  transition-duration: 0.3s;
+  background-color: #000C4F;
+  align-items: center;
+  gap: 0;
+}
+
+.bin-top {
+  transform-origin: bottom right;
+}
+.btn-delete:hover .bin-top {
+  transition-duration: 0.5s;
+  transform: rotate(160deg);
 }
