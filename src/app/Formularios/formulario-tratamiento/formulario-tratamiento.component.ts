@@ -46,13 +46,27 @@ export class FormularioTratamientoComponent {
 
   vetId1!: string;
   enfermedades!: Enfermedad[];
+  mascota!: string;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-      this.servicioEnfermedad.getAllEnfermedades().subscribe(enfermedades => {
-        this.enfermedades = enfermedades
-      })
+      this.mascota = this.router.url.split('id=')[1].split('&')[1];
+
+      if (this.mascota != null) {
+        this.servicioMascota.getMascotaById(Number(this.router.url.split('mascotaId=')[1].split('&')[0])).subscribe(mascota => {
+          this.formTratamiento.cedula = mascota.dueno.cedula;
+          this.formTratamiento.nombre = mascota.nombre;
+        })
+        this.servicioEnfermedad.getAllEnfermedades().subscribe(enfermedades => {
+          this.enfermedades = enfermedades
+        });
+      }
+      else {
+        this.servicioEnfermedad.getAllEnfermedades().subscribe(enfermedades => {
+          this.enfermedades = enfermedades
+        });
+      }
     });
 
   }
