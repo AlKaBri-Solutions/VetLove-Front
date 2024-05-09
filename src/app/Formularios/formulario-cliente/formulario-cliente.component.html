@@ -46,7 +46,7 @@
                         [(ngModel)]="formCliente.cedula">
                     <input id="id_correo" class="flip-card__input" placeholder="Correo" type="text" name="correo"
                         [(ngModel)]="formCliente.correo">
-                    <input id="id_edad" class="flip-card__input" placeholder="Celular" type="text" name="celular"
+                    <input id="id_celular" class="flip-card__input" placeholder="Celular" type="text" name="celular"
                         [(ngModel)]="formCliente.celular">
 
                 </ng-container>
@@ -63,7 +63,7 @@
 
 
 
-                <button class="btn-enviar" type="submit" (click)="registrarCliente(formCliente)">
+                <button id="add-cliente-btn" class="btn-enviar" type="submit" (click)="registrarCliente(formCliente)">
                     <div class="svg-wrapper-1">
                         <div class="svg-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
