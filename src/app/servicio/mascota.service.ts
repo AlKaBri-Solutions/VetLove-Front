@@ -57,4 +57,8 @@ export class MascotaService {
     return this.http.get<Number>('http://localhost:8090/mascota/countAll');
   }
 
+  countActivas(): Observable<Number>{
+    return this.http.get<Number>('http://localhost:8090/mascota/countActivas');
+  }
+
 }
