@@ -38,7 +38,7 @@ export class DetalleMascotaComponent {
         });
         this.servicioTratamiento.getTratamientosByMascotaId(Number(this.petId1)).subscribe(tratData => {
           this.tratamientoList = tratData;
-          this.tratamiento = this.tratamientoList[0];
+          this.tratamiento = this.tratamientoList[1];
         })
   }
 }
