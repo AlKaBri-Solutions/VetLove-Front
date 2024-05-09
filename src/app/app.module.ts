@@ -25,7 +25,7 @@ import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page/landing-page.component';
 
 // import function to register Swiper custom elements
-import { GoogleMapsModule } from '@angular/google-maps';
+import {GoogleMapsModule} from '@angular/google-maps';
 import { DevExtremeModule } from 'devextreme-angular';
 import { register } from 'swiper/element/bundle';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';

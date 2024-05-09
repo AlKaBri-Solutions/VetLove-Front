@@ -35,6 +35,13 @@ export class VeterinarioService {
 
   updateVeterinario(veterinario: Veterinario) {
     return this.http.put<Veterinario>('http://localhost:8090/veterinario/update', veterinario);
+  }
 
+  countVeterinariosActivos(): Observable<Number>{
+    return this.http.get<Number>('http://localhost:8090/veterinario/countVeterinariosActivos');
+  }
+
+  countVeterinariosInactivos(): Observable<Number>{
+    return this.http.get<Number>('http://localhost:8090/veterinario/countVeterinariosInctivos');
   }
 }

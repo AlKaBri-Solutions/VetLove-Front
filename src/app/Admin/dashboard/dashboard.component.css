@@ -1,93 +1,83 @@
 h1 {
-    text-align: left;
-    font-size: 3em;
-    color: #000C4F;
-  }
+  text-align: left;
+  font-size: 3em;
+  color: #000C4F;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
 
-  .dashboard-todo {
-    margin-left: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  } 
+.dashboard-todo {
+  margin-left: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} 
 
-  h3 {
-    color: #000C4F;
-    font-size: 1.5em;
-  }
-  
-  .usuario {
-    color: #FE761E;
-  }
+h3 {
+  color: #000C4F;
+  font-size: 1.5em;
+}
+
+.usuario {
+  color: #FE761E;
+}
 
 
-  .contenedor-todos-datos{
-    display: flex;
-    flex-wrap: wrap;
-    height: 65vh;
-    margin-top: 5%;
-  }
+.contenedor-todos-datos{
+  display: flex;
+  flex-wrap: wrap;
+  height: 85vh;
+  margin-left: -2.5%;
+}
 
-  .dashboard-tratamientos{
-    display: flex;
-    background: #FFECD5;
-    width: 50%;
-    margin-right: 2.5%;
-  }
+.contenedor-fila1, .contenedor-fila2, .contenedor-fila3{
+  display: flex;
+  width: 95%; 
+  justify-content: space-evenly;
+}
 
-  .contenedor-resto-datos{
-    display: flex;
-    width: 40%;
-    margin-left: 2.5%;
-    flex-wrap: wrap;
-    margin-bottom: 5%;
-  }
+.contenedor-fila1, .contenedor-fila3{
+  height: 20vh;
+}
 
-  .dashboard-mascotas-veterinarios{
-    display: flex;
-    background: #FFECD5;
-    width: 100%;
-    margin-bottom: 2.5%;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.contenedor-fila2{
+  height: 40vh;
+}
 
-  .contenedor-dos-fichas{
-    display: flex;
-    width: 100%;
-    margin-top: 2.5%;
-  }
+.contenedor-ventas-tot, .contenedor-ganancias, .contenedor-top, 
+.contenedor-total-tratamientos, .contenedor-cant-mascotas, .contenedor-cant-mascotas-act{
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFECD5;
+}
 
-  .dashboard-mascotas-tratamiento{
-    display: flex;
-    background: #FFECD5;
-    width: 50%;
-    margin-right: 2.5%;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
 
-  .dashboard-atenciones-realizadas{
-    display: flex;
-    background: #FFECD5;
-    width: 50%;
-    margin-left: 2.5%;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+.contenedor-tratXmed{
+  display: flex;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 46%;
+  background-color: #FFECD5;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-  .contenedor-medicamentos-data-grid{
-    display: flex;
-    flex-wrap: wrap;
-    height: 85vh;
-    background: #FFECD5;
-    margin-top: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-  }
+.contenedor-pie-chart{
+  display: flex;  
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 100%;
+  background-color: #FFECD5;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
   .title-dashboard{
     font-size: 1.2em;
@@ -103,11 +93,84 @@ h1 {
 
   .mascotas-trat{
     display: flex;
-    border-radius: 75%;
-    border: 5px solid #000C4F;
+    border-radius: 100%;
+    border: 5px solid #FE761E;
     font-size: 2rem;
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     color: #000C4F;
     font-weight: bold;
+    margin-bottom: 2.5%;
   }
+
+  .dinero{
+    display: flex;  
+    font-size: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color: #000C4F;
+    font-weight: bold;
+    margin-bottom: 2.5%;
+  }
+
+  #chart-top{
+    height: 100px;
+  }
+
+  #pie{
+    height: 250px;
+    width: 200px;
+    margin-right: 400px;
+  }
+
+  #chart{
+    height: 220px;
+    width: 550px;
+  }
+
+  #btn-export-pie{
+    position: relative !important;
+    margin-left: 400px!important;
+    background-color: #000C4F;
+    float: right;
+  }
+
+  ::ng-deep .annotation {
+    font-size: 12px; 
+    color: #000C4F;
+    border: none;
+    box-shadow: none;
+  }
+  
+  ::ng-deep .border {
+    width: 60px;
+    height: 40px;
+    stroke: rgba(191, 191, 191, 0.25);
+    stroke-width: 1px;
+    fill: transparent;
+  }
+  
+  ::ng-deep .state {
+    font-weight: bold;
+    font-size: 10px;
+    color: #000C4F !important;
+  }
+  
+  ::ng-deep .caption {
+    font-weight: 500;
+  }
+  
+  ::ng-deep .sup {
+    font-size: 0.8em;
+  }
+  
+  
+
+
+
+
+  

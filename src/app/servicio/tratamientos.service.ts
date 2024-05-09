@@ -42,4 +42,8 @@ export class TratamientosService {
     return this.http.post<number>('http://localhost:8090/tratamiento/add', tratamiento)
   }
 
+  countTratamientosLastMonth(): Observable<Number>{
+    return this.http.get<number>('http://localhost:8090/tratamiento/countTratamientosLastMonth')
+  }
+
 }
