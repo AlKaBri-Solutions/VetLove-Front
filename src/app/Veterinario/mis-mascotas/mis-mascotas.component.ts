@@ -15,7 +15,7 @@ export class MisMascotasComponent {
   vetId1 = '';
   url: string = '';
   vet!: any;
-  cliId1 = '';
+  cliId1 = 1;
   cli!: any;
   filtro: string = '';
   @Input()
@@ -42,12 +42,13 @@ export class MisMascotasComponent {
           .subscribe((veterinario) => {
             this.vet = veterinario;
           });
-      }else if(this.tipoUsuario === 'cliente') {
-        this.cliId1 = this.router.url.split('id=')[1].split('&')[0];
+      } else if (this.tipoUsuario === 'cliente') {
+        this.cliId1 = Number(params.get('id'));
         this.servicioMascota
           .getMascotasByClienteId(Number(this.cliId1))
           .subscribe((mascotas) => {
             this.mascotaList = mascotas;
+            console.log(mascotas)
           });
         this.servicioCliente
           .getClienteById(Number(this.cliId1))
@@ -56,6 +57,18 @@ export class MisMascotasComponent {
           });
       }
     });
+    // if(this.tipoUsuario == 'cliente'){
+    //   this.servicioCliente.clienteHome().subscribe(
+    //     (data) => {
+    //       console.log(data)
+    //       this.cli = data
+    //       this.servicioMascota.getMascotasByClienteId(Number(this.cli.id))
+    //     .subscribe((mascotas) => {
+    //       this.mascotaList = mascotas;
+    //     });
+    //     }
+    //   )
+    // }
   }
 
   confirmarEliminacion(id: number) {
@@ -80,15 +93,16 @@ export class MisMascotasComponent {
     }
   }
 
-
   aplicarFiltro() {
-    return this.mascotaList.filter(mascota =>
-      mascota.nombre.toLowerCase().includes(this.filtro.toLowerCase()) ||
-      mascota.raza.toLowerCase().includes(this.filtro.toLowerCase()) ||
-      mascota.edad.toString().toLowerCase().includes(this.filtro.toLowerCase()) ||
-      mascota.estado.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+    return this.mascotaList.filter(
+      (mascota) =>
+        mascota.nombre.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        mascota.raza.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        mascota.edad
+          .toString()
+          .toLowerCase()
+          .includes(this.filtro.toLowerCase()) ||
+        mascota.estado.nombre.toLowerCase().includes(this.filtro.toLowerCase())
     );
   }
-  
-
 }

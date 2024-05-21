@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RiveModule } from 'ng-rive';
 import { FormularioClienteComponent } from './Formularios/formulario-cliente/formulario-cliente.component';
@@ -42,6 +42,7 @@ import { FormularioTratamientoComponent } from './Formularios/formulario-tratami
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 import { GoogleMapComponent } from './Maps/google-map/google-map.component';
 import { UbicacionFisicaComponent } from './Maps/ubicacion-fisica/ubicacion-fisica.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 
 
@@ -88,7 +89,9 @@ register();
     DevExtremeModule,
     GoogleMapsModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

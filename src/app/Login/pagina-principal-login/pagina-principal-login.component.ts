@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/Cliente';
+import { UserCliente } from 'src/app/models/UserCliente';
 import { Veterinario } from 'src/app/models/Veterinario';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
@@ -19,27 +20,42 @@ export class PaginaPrincipalLoginComponent {
   mostrarPopup = false;
   mensajePopup: string = "";
 
+  formUserCliente: UserCliente = {
+    cedula: '',
+    password: '',
+  };
+
   constructor(
     private servicioVeterinario: VeterinarioService,
-    private servicioCliente: ClienteService
+    private servicioCliente: ClienteService,
+    private router: Router
   ) { }
 
 
-  validarLoginCliente(){
+  // validarLoginCliente(){
 
-    console.log(this.txtCedulaCliente);
+  //   console.log(this.txtCedulaCliente);
     
-    this.servicioCliente.getClienteByCedula(this.txtCedulaCliente).subscribe({
-      next: (clienteInfo:any) => {
-        if(clienteInfo != null){
-          this.cliente = clienteInfo
-          window.location.href = "cliente/mis-mascotas?id=" + this.cliente!.id
-        }else{
-          this.cliente = null
-          this.abrirPopup("La cedula ingresada es incorrecta"); 
-        }
+  //   this.servicioCliente.getClienteByCedula(this.txtCedulaCliente).subscribe({
+  //     next: (clienteInfo:any) => {
+  //       if(clienteInfo != null){
+  //         this.cliente = clienteInfo
+  //         window.location.href = "cliente/mis-mascotas?id=" + this.cliente!.id
+  //       }else{
+  //         this.cliente = null
+  //         this.abrirPopup("La cedula ingresada es incorrecta"); 
+  //       }
+  //     }
+  //   })
+  // }
+
+  validarLoginCliente(form: any){
+    this.servicioCliente.login(this.formUserCliente).subscribe(
+      (data) => {
+        localStorage.setItem('token',String(data));
+        this.router.navigate(['/cliente/home/mis-mascotas'])
       }
-    })
+    )
   }
 
   validarLoginVeterinario(){

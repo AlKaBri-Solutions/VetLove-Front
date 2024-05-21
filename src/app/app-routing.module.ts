@@ -26,6 +26,8 @@ const routes: Routes = [
   {path: 'veterinario/mis-clientes', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
   {path: 'cliente/mis-mascotas', component: PaginaPrincipalVeterinarioComponent},
+  {path: 'cliente/home/mis-mascotas', component: PaginaPrincipalVeterinarioComponent},
+  {path: 'cliente/home/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
   {path: 'cliente/mi-perfil', component: PaginaPrincipalVeterinarioComponent},
   {path: 'veterinario/add-mascota', component: FormularioMascotaComponent},
   {path: 'veterinario/update-mascota', component: FormularioMascotaComponent},
