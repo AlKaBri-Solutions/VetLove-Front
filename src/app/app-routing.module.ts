@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { RiveModule } from 'ng-rive';
 import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pagina-principal-admin.component';
+import { AgendarComponent } from './Formularios/agendar/agendar.component';
 import { FormularioClienteComponent } from './Formularios/formulario-cliente/formulario-cliente.component';
 import { FormularioMascotaComponent } from './Formularios/formulario-mascota/formulario-mascota.component';
 import { FormularioTratamientoComponent } from './Formularios/formulario-tratamiento/formulario-tratamiento.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'admin/update-veterinario', component: FormularioVeterinarioComponent},
   {path: 'tratamiento/add-tratamiento', component: FormularioTratamientoComponent},
   {path: 'ubicacion', component: UbicacionFisicaComponent},
+  {path: 'agendar', component: AgendarComponent},
 
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: '**', component: ErrorDefaultComponent},

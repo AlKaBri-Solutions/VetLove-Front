@@ -8,7 +8,7 @@
         <div class="contenedor-lo-que-sea">
             <a href="/veterinario/add-mascota?id={{vetId1}}">
                 <div tabindex="0" class="plusButton">
-                    <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <svg id="add-mascotas-btn" class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                         <g mask="url(#mask0_21_345)">
                             <path
                                 d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
@@ -109,7 +109,7 @@
 
                                     </ng-container>
                                     <ng-container *ngIf="mascota.estado.id == 2">
-                                        <a style="text-decoration: none" href="/tratamiento/add-tratamiento?id={{vetId1}}">
+                                        <a style="text-decoration: none" href="/tratamiento/add-tratamiento?id={{vetId1}}&mascotaId={{mascota.id}}">
 
 
                                             <button class="button">

@@ -46,6 +46,7 @@
                      <form id="form-login" class="flip-card__form" #form1="ngForm" (ngSubmit)="validarLoginCliente(form1)">
                       <input id ="id_email" type="text" class="flip-card__input" name = "cedula" placeholder="Cédula" required [(ngModel)]="formUserCliente.cedula">
                       <button class="flip-card__btn">Entrar</button>
+
                      </form>
                      <p class="or">También puedes ingresar con</p>
                      <div class="login-alt">
@@ -63,9 +64,9 @@
                   <div class="flip-card__back">
                      <div class="title">Ingreso Veterinario</div>
                      <form class="flip-card__form" #form="ngForm" (ngSubmit)="validarLoginVeterinario()">
-                        <input class="flip-card__input" name="email" placeholder="Cédula" type="text" required [(ngModel)]="txtCedulaVet">
-                        <input class="flip-card__input" name="contraseña" placeholder="Password" type="password" required [(ngModel)]="txtPasswordVet">
-                        <button class="flip-card__btn">Entrar</button>
+                        <input id="cedula-login" class="flip-card__input" name="email" placeholder="Cédula" type="text" required [(ngModel)]="txtCedulaVet">
+                        <input id="password-login" class="flip-card__input" name="contraseña" placeholder="Password" type="password" required [(ngModel)]="txtPasswordVet">
+                        <button id="send-login" class="flip-card__btn">Entrar</button>
                      </form>
                      <p class="or">También puedes ingresar con</p>
                      <div class="login-alt">

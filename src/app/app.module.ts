@@ -34,8 +34,10 @@ import { PaginaPrincipalAdminComponent } from './Admin/pagina-principal-admin/pa
 import { MedicamentosDataGridComponent } from './DevExpress/medicamentos-data-grid/medicamentos-data-grid.component';
 import { TratamientosChartComponent } from './DevExpress/tratamientos-chart/tratamientos-chart.component';
 
+
 import { DatePipe } from '@angular/common';
 
+import { AgendarComponent } from './Formularios/agendar/agendar.component';
 import { FormularioTratamientoComponent } from './Formularios/formulario-tratamiento/formulario-tratamiento.component';
 import { FormularioVeterinarioComponent } from './Formularios/formulario-veterinario/formulario-veterinario.component';
 import { GoogleMapComponent } from './Maps/google-map/google-map.component';
@@ -75,6 +77,7 @@ register();
     FormularioTratamientoComponent,
     GoogleMapComponent,
     UbicacionFisicaComponent,
+    AgendarComponent,
   ],
   imports: [
     BrowserModule,
