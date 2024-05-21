@@ -20,9 +20,9 @@
 <ng-container *ngIf="ruta.includes('/cliente')">
     <app-sidebar  [tipoUsuario]="'cliente'"></app-sidebar>
 </ng-container>
-<ng-container *ngIf="ruta == '/cliente/mis-mascotas'">
+<ng-container *ngIf="ruta == '/cliente/home/mis-mascotas'">
     <app-mis-mascotas [tipoUsuario]="'cliente'"></app-mis-mascotas>
 </ng-container>
-<ng-container *ngIf="ruta == '/cliente/mi-perfil'">
+<ng-container *ngIf="ruta == '/cliente/home/mi-perfil'">
     <app-mi-perfil [tipoUsuario]="'cliente'"></app-mi-perfil>
 </ng-container>

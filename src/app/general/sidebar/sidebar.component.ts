@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,11 +15,11 @@ export class SidebarComponent {
   tipoUsuario: string = "";
 
   constructor(
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
-  ngOnInit(): void {
-    this.ruta = this.router.url.split('?')[0];
-    this.id = Number(this.router.url.split('id=')[1].split('&')[0]);
+  getCurrentRoute(): string {
+    return this.location.path();
   }
 }

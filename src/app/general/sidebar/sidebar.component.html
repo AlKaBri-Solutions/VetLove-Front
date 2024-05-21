@@ -81,8 +81,8 @@
                     </div>
             </li>
             <div class="menu-list"> 
-                <li [ngClass] = "(ruta == '/cliente/mis-mascotas')? 'active' : ''">
-                    <a href="/cliente/mis-mascotas?id={{id}}">
+                <li [ngClass] = "getCurrentRoute() === '/cliente/home/mis-mascotas' ? 'active' : ''">
+                    <a href="http://localhost:4200/cliente/home/mis-mascotas">
                         <div class="contenedor-li">
                             <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 20 20"><path fill="currentColor" d="M11.9 8.4c1.3 0 2.1-1.9 2.1-3.1c0-1-.5-2.2-1.5-2.2c-1.3 0-2.1 1.9-2.1 3.1c0 1 .5 2.2 1.5 2.2m-3.8 0c1 0 1.5-1.2 1.5-2.2C9.6 4.9 8.8 3 7.5 3C6.5 3 6 4.2 6 5.2c-.1 1.3.7 3.2 2.1 3.2m7.4-1c-1.3 0-2.2 1.8-2.2 3.1c0 .9.4 1.8 1.3 1.8c1.3 0 2.2-1.8 2.2-3.1c0-.9-.5-1.8-1.3-1.8m-8.7 3.1c0-1.3-1-3.1-2.2-3.1c-.9 0-1.3.9-1.3 1.8c0 1.3 1 3.1 2.2 3.1c.9 0 1.3-.9 1.3-1.8m3.2-.2c-2 0-4.7 3.2-4.7 5.4c0 1 .7 1.3 1.5 1.3c1.2 0 2.1-.8 3.2-.8c1 0 1.9.8 3 .8c.8 0 1.7-.2 1.7-1.3c0-2.2-2.7-5.4-4.7-5.4"/></svg></div>
                             <div class="text">MIS MASCOTAS</div>
@@ -90,8 +90,8 @@
                     </a>
                 </li>
     
-                <li [ngClass] = "(ruta == '/cliente/mi-perfil')? 'active' : ''">
-                    <a href="/cliente/mi-perfil?id={{id}}">
+                <li [ngClass] = "getCurrentRoute() === '/cliente/home/mi-perfil' ? 'active' : ''">
+                    <a href="http://localhost:4200/cliente/home/mi-perfil">
                         <div class="contenedor-li">
                             <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 15 15"><path fill="currentColor" d="M5.5 7A2.5 2.5 0 0 1 3 4.5v-2a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v2a3.49 3.49 0 0 0 1.51 2.87A4.41 4.41 0 0 1 5 10.5a3.5 3.5 0 1 0 7 0v-.57a2 2 0 1 0-1 0v.57a2.5 2.5 0 0 1-5 0a4.41 4.41 0 0 1 1.5-3.13A3.49 3.49 0 0 0 9 4.5v-2A1.5 1.5 0 0 0 7.5 1H7a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v2A2.5 2.5 0 0 1 5.5 7m6 2a1 1 0 1 1 0-2a1 1 0 0 1 0 2"/></svg></div>
                             <div class="text">PERFIL</div>

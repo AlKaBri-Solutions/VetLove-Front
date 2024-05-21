@@ -146,7 +146,7 @@ export class DashboardComponent {
     )
 
     this.servicioMedicamento.countMedicamentoXEnfermedadLastMonth().subscribe(enfData =>{
-      this.medXenfer = enfData
+      this.medXenfer = enfData.slice(0, 5)
       console.log(this.medXenfer)
     }
     )

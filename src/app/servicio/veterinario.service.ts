@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Veterinario } from '../models/Veterinario';
+import { Cliente } from '../models/Cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,16 @@ export class VeterinarioService {
 
   countVeterinariosInactivos(): Observable<Number>{
     return this.http.get<Number>('http://localhost:8090/veterinario/countVeterinariosInctivos');
+  }
+
+  login(veterinario: Veterinario):Observable<String>{
+    return this.http.post('http://localhost:8090/veterinario/login',veterinario,
+    {
+      responseType: 'text'
+    })
+  }
+
+  clienteHome():Observable<Veterinario>{
+    return this.http.get<Veterinario>('http://localhost:8090/veterinario/details')
   }
 }

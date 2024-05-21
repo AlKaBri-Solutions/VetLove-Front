@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from '../models/Cliente';
+import { UserCliente } from '../models/UserCliente';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +46,17 @@ export class ClienteService {
   deleteCliente(id: number){
     return this.http.delete<Cliente>('http://localhost:8090/cliente/delete?id=' + id);
   }
+
+
+  login(user: UserCliente):Observable<String>{
+    return this.http.post('http://localhost:8090/cliente/login',user,
+    {
+      responseType: 'text'
+    })
+  }
+
+  clienteHome():Observable<Cliente>{
+    return this.http.get<Cliente>('http://localhost:8090/cliente/details')
+  }
+
 }

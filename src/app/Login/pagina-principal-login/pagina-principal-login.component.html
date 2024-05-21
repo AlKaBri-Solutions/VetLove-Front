@@ -43,8 +43,8 @@
                <div class="flip-card__inner">
                   <div class="flip-card__front">
                      <div class="title">Ingreso Dueño</div>
-                     <form id="form-login" class="flip-card__form" #form1="ngForm" (ngSubmit)="validarLoginCliente()">
-                      <input id ="id_email" type="text" class="flip-card__input" name = "cedula" placeholder="Cédula" required [(ngModel)]="txtCedulaCliente">
+                     <form id="form-login" class="flip-card__form" #form1="ngForm" (ngSubmit)="validarLoginCliente(form1)">
+                      <input id ="id_email" type="text" class="flip-card__input" name = "cedula" placeholder="Cédula" required [(ngModel)]="formUserCliente.cedula">
                       <button class="flip-card__btn">Entrar</button>
                      </form>
                      <p class="or">También puedes ingresar con</p>
