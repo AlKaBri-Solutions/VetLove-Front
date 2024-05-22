@@ -28,15 +28,29 @@ export class MisClientesComponent {
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-      this.servicioCliente.getClientesByVeterinarioId(Number(this.vetId1)).subscribe(clientes => {
-        this.clientList = clientes;
-      });
-      this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
-        this.vet = veterinario
-      });
-    });
+    // this.route.paramMap.subscribe(params => {
+    //   this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
+    //   this.servicioCliente.getClientesByVeterinarioId(Number(this.vetId1)).subscribe(clientes => {
+    //     this.clientList = clientes;
+    //   });
+    //   this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
+    //     this.vet = veterinario
+    //     this.vetId1 = this.vet.idVeterinario.toString();
+    //   });
+    // });
+
+    this.servicioVeterinario.veterinarioHome()
+        .pipe(
+          mergeMap((veterinario) => {
+            console.log(veterinario);
+            
+            this.vet = veterinario;
+            return this.servicioCliente.getClientesByVeterinarioId(veterinario.idVeterinario);
+          })
+        )
+        .subscribe((clientes) => {
+          this.clientList = clientes
+        })
   }
 
   aplicarFiltro() {

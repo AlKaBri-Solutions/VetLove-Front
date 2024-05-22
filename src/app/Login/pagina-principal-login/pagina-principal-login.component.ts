@@ -62,12 +62,7 @@ export class PaginaPrincipalLoginComponent {
         if(data != null)
         {
           localStorage.setItem('token',String(data));
-
-        console.log(data);
         
-        localStorage.setItem('token',String(data));
-        console.log("TOKEN:" + localStorage.getItem('token'));
-
         this.router.navigate(['/cliente/home/mis-mascotas'])
         }else{
           this.abrirPopup("La cedula ingresada no es válida");

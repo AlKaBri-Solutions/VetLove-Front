@@ -58,11 +58,9 @@ export class MiPerfilComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if(this.tipoUsuario === 'veterinario'){
-        this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-        this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
-          this.veterinario = veterinario
-          console.log(this.veterinario)
-        });
+        this.servicioVeterinario.veterinarioHome().subscribe((vet) => {
+          this.veterinario = vet;
+        })
       }else if(this.tipoUsuario === 'cliente'){
         this.servicioCliente.clienteHome().subscribe((client) => {
           this.cli = client;

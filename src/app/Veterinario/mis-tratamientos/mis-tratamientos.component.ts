@@ -34,15 +34,20 @@ export class MisTratamientosComponent {
     private servicioTratamiento: TratamientosService
   ) {}
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.vetId1 = this.router.url.split('id=')[1].split('&')[0];
-      this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1)).subscribe(tratamientos => {
-        this.tratamientoList = tratamientos;
-      });
-      this.servicioVeterinario.getVeterinarioById(Number(this.vetId1)).subscribe(veterinario => {
-        this.vet = veterinario
-      });
-    });
+    this.servicioVeterinario.veterinarioHome()
+        .pipe(
+          mergeMap((veterinario) => {
+            console.log(veterinario);
+            
+            this.vet = veterinario;
+            console.log(this.vet);
+            
+            return this.servicioTratamiento.getTratamientosByVeterinarioId(veterinario.idVeterinario);
+          })
+        )
+        .subscribe((tratamientos) => {
+          this.tratamientoList = tratamientos
+        })
   }
   aplicarFiltro() {
     return this.tratamientoList.filter(tratamiento =>
@@ -69,7 +74,10 @@ export class MisTratamientosComponent {
           return EMPTY
         }
         else {
-          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+          console.log(this.vet.id);
+          console.log(this.vet);
+          
+          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vet.idVeterinario));
         }
       }),
       map((tratamientos: any) => {
@@ -87,7 +95,9 @@ export class MisTratamientosComponent {
           return EMPTY
         }
         else {
-          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vetId1));
+          console.log(this.vet.id);
+          
+          return this.servicioTratamiento.getTratamientosByVeterinarioId(Number(this.vet.idVeterinario));
         }
       }),
       map((tratamientos: any) => {
