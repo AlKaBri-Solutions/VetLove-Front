@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/Cliente';
 import { UserCliente } from 'src/app/models/UserCliente';
 import { UserVeterinario } from 'src/app/models/UserVeterinario';
@@ -58,9 +58,16 @@ export class PaginaPrincipalLoginComponent {
   validarLoginCliente(form: any){
     this.servicioCliente.login(this.formUserCliente).subscribe(
       (data) => {
+
         if(data != null)
         {
           localStorage.setItem('token',String(data));
+
+        console.log(data);
+        
+        localStorage.setItem('token',String(data));
+        console.log("TOKEN:" + localStorage.getItem('token'));
+
         this.router.navigate(['/cliente/home/mis-mascotas'])
         }else{
           this.abrirPopup("La cedula ingresada no es válida");
