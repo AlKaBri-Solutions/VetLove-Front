@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/Cliente';
 import { UserCliente } from 'src/app/models/UserCliente';
+import { UserVeterinario } from 'src/app/models/UserVeterinario';
 import { Veterinario } from 'src/app/models/Veterinario';
 import { ClienteService } from 'src/app/servicio/cliente.service';
 import { VeterinarioService } from 'src/app/servicio/veterinario.service';
@@ -23,6 +24,11 @@ export class PaginaPrincipalLoginComponent {
   formUserCliente: UserCliente = {
     cedula: '',
     password: '',
+  };
+
+  formUserVeterinario: UserVeterinario = {
+    cedula: '',
+    contrasenia: '',
   };
 
   constructor(
@@ -52,33 +58,53 @@ export class PaginaPrincipalLoginComponent {
   validarLoginCliente(form: any){
     this.servicioCliente.login(this.formUserCliente).subscribe(
       (data) => {
+
+        if(data != null)
+        {
+          localStorage.setItem('token',String(data));
+
         console.log(data);
         
         localStorage.setItem('token',String(data));
         console.log("TOKEN:" + localStorage.getItem('token'));
-        
+
         this.router.navigate(['/cliente/home/mis-mascotas'])
+        }else{
+          this.abrirPopup("La cedula ingresada no es válida");
+        } 
+        
       }
     )
   }
 
-  validarLoginVeterinario(){
-    this.servicioVeterinario.getVeterinarioByCedula(this.txtCedulaVet).subscribe({
-      next: (veterinario:any) => {
-        if(veterinario != null){
-          this.vet = veterinario
-          if(this.txtPasswordVet == this.vet!.contrasenia)
-          {
-              window.location.href = "veterinario/mis-mascotas?id=" + this.vet!.idVeterinario
-          }else{
-            this.abrirPopup("La cedula ingresada o la contraseña son incorrectas");
-          }  
+  validarLoginVeterinario(form: any){
+    this.servicioVeterinario.login(this.formUserVeterinario).subscribe(
+      (data) => {
+        if(data != null){
+          localStorage.setItem('token',String(data));
+          this.router.navigate(['/veterinario/home/mis-mascotas'])
         }else{
-          this.vet = null
-          this.abrirPopup("La cedula ingresada o la contraseña son incorrectas"); 
+          this.abrirPopup("La cedula ingresada o la contraseña no son válidas");
         }
       }
-    })
+    )
+  
+    // this.servicioVeterinario.getVeterinarioByCedula(this.txtCedulaVet).subscribe({
+    //   next: (veterinario:any) => {
+    //     if(veterinario != null){
+    //       this.vet = veterinario
+    //       if(this.txtPasswordVet == this.vet!.contrasenia)
+    //       {
+    //           window.location.href = "veterinario/mis-mascotas?id=" + this.vet!.idVeterinario
+    //       }else{
+    //         this.abrirPopup("La cedula ingresada o la contraseña son incorrectas");
+    //       }  
+    //     }else{
+    //       this.vet = null
+    //       this.abrirPopup("La cedula ingresada o la contraseña son incorrectas"); 
+    //     }
+    //   }
+    // })
   }
 
 

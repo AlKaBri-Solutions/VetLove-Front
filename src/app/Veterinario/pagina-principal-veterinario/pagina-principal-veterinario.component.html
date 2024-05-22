@@ -2,16 +2,16 @@
 <ng-container *ngIf="ruta.includes('/veterinario')">
     <app-sidebar  [tipoUsuario]="'veterinario'"></app-sidebar>
 </ng-container>
-<ng-container *ngIf="ruta == '/veterinario/mis-mascotas' || ruta == '/veterinario'">
+<ng-container *ngIf="ruta == '/veterinario/home/mis-mascotas' || ruta == '/veterinario'">
     <app-mis-mascotas [tipoUsuario]="'veterinario'"></app-mis-mascotas>
 </ng-container>
-<ng-container *ngIf="ruta == '/veterinario/mis-tratamientos'">
+<ng-container *ngIf="ruta == '/veterinario/home/mis-tratamientos'">
     <app-mis-tratamientos></app-mis-tratamientos>
 </ng-container>
-<ng-container *ngIf="ruta == '/veterinario/mis-clientes'">
+<ng-container *ngIf="ruta == '/veterinario/home/mis-clientes'">
     <app-mis-clientes></app-mis-clientes>
 </ng-container>
-<ng-container *ngIf="ruta == '/veterinario/mi-perfil'">
+<ng-container *ngIf="ruta == '/veterinario/home/mi-perfil'">
     <app-mi-perfil [tipoUsuario]="'veterinario'"></app-mi-perfil>
 </ng-container>
 
