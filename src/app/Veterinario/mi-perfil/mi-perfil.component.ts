@@ -64,11 +64,10 @@ export class MiPerfilComponent {
           console.log(this.veterinario)
         });
       }else if(this.tipoUsuario === 'cliente'){
-        this.clienteId1 = this.router.url.split('id=')[1].split('&')[0];
-        this.servicioCliente.getClienteById(Number(this.clienteId1)).subscribe(cli => {
-          this.cli = cli
-          console.log(this.cli)
-        });
+        this.servicioCliente.clienteHome().subscribe((client) => {
+          this.cli = client;
+          console.log(this.cli);
+          });
       } else if(this.tipoUsuario === 'admin'){
         console.log("Entra a admin")
         this.servicioAdmin.getAdministrador().subscribe(admin => {

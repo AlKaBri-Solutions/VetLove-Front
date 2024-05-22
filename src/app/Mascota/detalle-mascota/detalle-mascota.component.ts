@@ -41,4 +41,8 @@ export class DetalleMascotaComponent {
           this.tratamiento = this.tratamientoList[1];
         })
   }
+
+  goBack(): void {
+    this.router.navigate(['../']);
+  }
 }
