@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Veterinario } from '../models/Veterinario';
-import { Cliente } from '../models/Cliente';
 import { UserVeterinario } from '../models/UserVeterinario';
+import { Veterinario } from '../models/Veterinario';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +53,7 @@ export class VeterinarioService {
     })
   }
 
-  clienteHome():Observable<Veterinario>{
+  veterinarioHome():Observable<Veterinario>{
     return this.http.get<Veterinario>('http://localhost:8090/veterinario/details')
   }
 }

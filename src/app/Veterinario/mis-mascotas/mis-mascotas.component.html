@@ -62,7 +62,7 @@
                                 <td class="row-3-v">{{mascota.edad}}</td>
                                 <td class="row-4-v">{{mascota.estado.nombre}}</td>
                                 <td class="row-5-v">
-                                    <a href="/veterinario/update-mascota?id={{vetId1}}&idMascota={{mascota.id}}">
+                                    <a href="/veterinario/update-mascota?id={{vet.id}}&idMascota={{mascota.id}}">
                                         <button class="editBtn">
                                             <svg height="24" width="24" viewBox="0 0 512 512">
                                                 <path
@@ -109,7 +109,7 @@
 
                                     </ng-container>
                                     <ng-container *ngIf="mascota.estado.id == 2">
-                                        <a style="text-decoration: none" href="/tratamiento/add-tratamiento?id={{vetId1}}&mascotaId={{mascota.id}}">
+                                        <a style="text-decoration: none" href="/tratamiento/add-tratamiento?id={{vet.id}}&mascotaId={{mascota.id}}">
 
 
                                             <button class="button">
@@ -174,7 +174,7 @@
             </table>
         </div>
         <div class="contenedor-tabla">
-            <ng-container *ngFor="let mascota of mascotaList">
+            <ng-container *ngFor="let mascota of aplicarFiltro()">
                 <table id="tabla-mascotas-body" class="tabla-mascotas">
                     <ng-container *ngIf="mascota">
                         <tbody>

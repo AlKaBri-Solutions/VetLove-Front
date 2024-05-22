@@ -53,19 +53,33 @@ export class MisMascotasComponent {
   ) { }
 
   ngOnInit(): void {
-    this.servicioCliente.clienteHome()
-      .pipe(
-        mergeMap((cliente) => {
-          console.log(cliente);
-          this.cli = cliente;
-          return this.servicioMascota.getMascotasByClienteId(cliente.id);
+    if (this.tipoUsuario === 'cliente'){
+      this.servicioCliente.clienteHome()
+        .pipe(
+          mergeMap((cliente) => {
+            this.cli = cliente;
+            return this.servicioMascota.getMascotasByClienteId(cliente.id);
+          })
+        )
+        .subscribe((mascotas) => {
+          this.mascotaList = mascotas;
+        });
+    }
+
+    if (this.tipoUsuario === 'veterinario') {
+      this.servicioVeterinario.veterinarioHome()
+        .pipe(
+          mergeMap((veterinario) => {
+            console.log(veterinario);
+            
+            this.vet = veterinario;
+            return this.servicioMascota.getMascotasByVeterinarioId(veterinario.idVeterinario);
+          })
+        )
+        .subscribe((mascotas) => {
+          this.mascotaList = mascotas
         })
-      )
-      .subscribe((mascotas) => {
-        this.mascotaList = mascotas;
-        console.log(mascotas);
-        
-      });
+    }
 
     // this.servicioCliente.clienteHome().subscribe((client) => {
     //   this.client = client;
