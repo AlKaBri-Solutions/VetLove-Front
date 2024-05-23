@@ -81,39 +81,52 @@
         <h3><span class="usuario">Estado</span> Veterinarios</h3>
         <dx-pie-chart
           id="pie"
-          palette="bright"
+          [palette]="['#fe761e', '#000c4f','#ffb871', '#0020b0']"
           [dataSource]="vets"
           (onPointClick)="pointClickHandler($event)"
           (onLegendClick)="legendClickHandler($event)"
         >
-          <dxi-series argumentField="estado" valueField="cantidad">
+          <dxi-series argumentField="estado" valueField="cantidad" class="pie1">
             <dxo-label [visible]="true">
               <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
             </dxo-label>
           </dxi-series>
-          <dxo-legend
-          verticalAlignment="bottom"
-          horizontalAlignment="center"
-          itemTextPosition="right"
-          [rowCount]="1"
-        >
-        </dxo-legend>
+          <div class="legend-pie">
+            <dxo-legend
+              verticalAlignment="bottom"
+              horizontalAlignment="center"
+              itemTextPosition="right"
+              [rowCount]="2"
+            >
+            </dxo-legend>
+          </div>
           <dxo-size [width]="500"></dxo-size>
-          <dxo-export [enabled]="true" id="btn-export-pie"></dxo-export>
+          <div
+            class="export-btn"
+            style="position: absolute; top: 10px; right: 10px"
+          >
+            <dxo-export [enabled]="false" id="btn-export-pie"></dxo-export>
+          </div>
         </dx-pie-chart>
       </div>
       <div class="contenedor-pie-chart">
         <h3>Tratamientos<span class="usuario"> X </span>Medicamento</h3>
+
         <dx-chart id="chart" [dataSource]="medXenfer">
-            <dxi-series
-              argumentField="nombre"
-              valueField="cantidad"
-              name="Medicamento"
-              type="bar"
-              color="#FFECD5"
-            >
-            </dxi-series>
-          </dx-chart>
+          <dxi-series argumentField="nombre" valueField="cantidad" color="#FE761E"></dxi-series>
+          <dxi-value-axis [tickInterval]="1" color="#000c4f" [width]="4">
+            <dxo-label></dxo-label>
+          </dxi-value-axis>
+          <dxo-common-series-settings type="scatter" color="#000c4f"></dxo-common-series-settings>
+          <dxo-argument-axis [tickInterval]="1" color="#000c4f" [width]="4">
+          </dxo-argument-axis>
+          <dxo-legend [visible]="false"></dxo-legend>
+          <dxo-common-pane-settings>
+            <dxo-border [visible]="false"></dxo-border>
+          </dxo-common-pane-settings>
+        </dx-chart>
+        
+
       </div>
     </div>
 
