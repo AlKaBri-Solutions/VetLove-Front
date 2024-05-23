@@ -785,6 +785,14 @@ h3{
   margin-left: 4%;
 }
 
+.container2 {
+  margin-left: 0;
+}
+
+.titulo-cli{
+  padding-left: 4%;
+}
+
 .input {
   --plus_sideLength: 2.4rem;
   padding-left: var(--size-button);
