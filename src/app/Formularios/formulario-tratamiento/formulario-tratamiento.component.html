@@ -1,4 +1,4 @@
-<section>
+    <section>
     <a href="/veterinario/home/mis-tratamientos" class="regresar">
         <button class="button1">
             <div class="button1-box">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="tooltip-container">
                         <select class="form-select" id="enfermedad" name="enfermedad" [(ngModel)]="formTratamiento.enfermedad">
-                            <option class="form-option" *ngFor="let enfermedad of enfermedades" [ngValue]="enfermedad">
+                            <option class="form-option enfermedad-option" *ngFor="let enfermedad of enfermedades" [ngValue]="enfermedad">
                                 {{enfermedad.nombre}}</option>
                         </select>
                         <span class="tooltip">Seleccione la enfermedad</span>

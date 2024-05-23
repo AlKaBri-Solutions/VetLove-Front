@@ -34,8 +34,7 @@ export class DashboardComponent {
   cont3: number = 0 
   cont4: number = 0
   medXenfer: TratamientoXMedicamento[] = []
-
-
+  
   constructor(
     private servicioTratamiento: TratamientosService,
     private servicioVeterinario: VeterinarioService,
@@ -104,21 +103,22 @@ export class DashboardComponent {
     })
 
     this.servicioVeterinario.getAllVeterinarios().subscribe(vetData =>{
+      const v = vetData[0].estado.nombre
       for(const i in vetData){
-        if(vetData[i].estado.idEstado == 1){
+        var auxV = vetData[i].estado.idEstado
+        if(auxV == 1){
           this.cont1 = this.cont1 + 1
         }
-        else if(vetData[i].estado.idEstado == 2){
+        else if(auxV == 2){
           this.cont2 = this.cont2 + 1
         }
-        else if(vetData[i].estado.idEstado == 3){
+        else if(auxV == 3){
           this.cont3 = this.cont3 + 1
         }else{
           this.cont4 = this.cont4 + 1
-        } 
+        }
       }
-
-      const aux = [
+      var aux = [
         {
         estado: "Activo",
         cantidad: this.cont1
@@ -146,7 +146,7 @@ export class DashboardComponent {
     )
 
     this.servicioMedicamento.countMedicamentoXEnfermedadLastMonth().subscribe(enfData =>{
-      this.medXenfer = enfData.slice(0, 5)
+      this.medXenfer = enfData
       console.log(this.medXenfer)
     }
     )
