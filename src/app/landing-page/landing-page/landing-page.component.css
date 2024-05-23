@@ -1065,6 +1065,7 @@ footer a{
 
 .chat-body {
   padding: 20px;
+  overflow-y: auto;
 }
 
 .message {

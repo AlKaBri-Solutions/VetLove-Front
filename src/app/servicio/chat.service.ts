@@ -11,7 +11,8 @@ export class ChatService {
   constructor(private http: HttpClient) { }
   
 
-  chatResponse(query_text:string): Observable<Chat> {
-    return this.http.post<Chat>('http://localhost:8000/query/', query_text);
+  chatResponse(queryText: string): Observable<Chat> {
+    const requestBody = { query_text: queryText }; // Envía un objeto JSON con la propiedad 'query_text'
+    return this.http.post<Chat>('http://localhost:8000/query', requestBody);
   }
 }

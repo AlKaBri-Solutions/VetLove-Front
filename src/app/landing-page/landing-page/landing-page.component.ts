@@ -15,7 +15,7 @@ export class LandingPageComponent {
 
   mostrarDivFlotante: boolean = false;
   mensajes: { tipo: string, contenido: string }[] = []; // Array para almacenar mensajes entrantes y salientes
-  mensajeSaliente: string = ''; // Variable para almacenar el mensaje que el usuario escribe
+  mensajeSaliente: string = " "; // Variable para almacenar el mensaje que el usuario escribe
 
   toggleDivFlotante() {
     this.mostrarDivFlotante = !this.mostrarDivFlotante;
